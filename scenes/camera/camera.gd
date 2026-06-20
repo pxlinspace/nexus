@@ -38,4 +38,4 @@ func zoom(enabled: bool):
 # pass in -1 for left player and 1 for right player
 func change_player(dir: int):
 	target_x = dir * player_x_offset
-	target_y_rot = dir * player_y_rot
+	target_y_rot = -dir * player_y_rot
