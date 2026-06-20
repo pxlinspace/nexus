@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Global="*uid://t0o2mgvuwhyu"
+Canvas="*uid://ca1u0132yv2fr"
 
 [display]
 

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://ca1u0132yv2fr"]
+
+[ext_resource type="Shader" uid="uid://bqshnpfveag70" path="res://shaders/squiggle.gdshader" id="1_knscm"]
+[ext_resource type="Script" uid="uid://d1f18gytmo5af" path="res://scenes/canvas_layer/canvas.gd" id="1_s6ffy"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
+shader = ExtResource("1_knscm")
+shader_parameter/frame_rate = 8
+shader_parameter/amplitude = 4.0
+shader_parameter/wave_size = 40.0
+
+[node name="CanvasLayer" type="CanvasLayer" unique_id=1564696057]
+script = ExtResource("1_s6ffy")
+
+[node name="Flashbang" type="ColorRect" parent="." unique_id=115502978]
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Squiggle" type="ColorRect" parent="." unique_id=1659880432]
+visible = false
+material = SubResource("ShaderMaterial_7mycd")
+offset_right = 640.0
+offset_bottom = 360.0
