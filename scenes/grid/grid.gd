@@ -33,6 +33,9 @@ func drop_ring(player: int, col: int):
 
 	grid[row][col] = player
 
+	# drop the actual ring visually
+	
+
 func check_win():
 	# check each row
 	for row in grid:
