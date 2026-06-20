@@ -5,7 +5,10 @@ enum RingType {
 	CLUBS_BOTTOM_RIGHT,
 	HEARTS_LEFT,
 	DIAMONDS_RIGHT,
-	HEAVY
+	HEAVY,
+	THORN,
+	ONE_RING,
+	WEDDING
 }
 
 @export var name: String
