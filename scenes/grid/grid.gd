@@ -42,6 +42,7 @@ func drop_ring(player: int, col: int):
 	if row == -1:
 		# this means there is no space in the column
 		print("there's no space in that column")
+		return
 
 	grid[row][col] = player
 
