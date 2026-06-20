@@ -27,7 +27,7 @@ func init_grid():
 	for i in range(rows):
 		var r = []
 		for x in range(cols):
-			r.append(0)
+			r.append(null)
 		grid.append(r)
 
 # drops a ring in the specified column
@@ -35,7 +35,7 @@ func drop_ring(player: int, col: int):
 	# start from the lowest row
 	var row = rows - 1
 	while row >= 0:
-		if grid[row][col] == 0:
+		if grid[row][col] == null:
 			break
 		row -= 1
 
@@ -44,17 +44,40 @@ func drop_ring(player: int, col: int):
 		print("there's no space in that column")
 		return
 
-	grid[row][col] = player
-
 	# drop the actual ring visually
 	Canvas.flash()
 	var ring = ring_scene.instantiate() as Ring
+	grid[row][col] = ring
+	ring.player = player
 	ring.target_pos = Vector3(
 		col * 18 * front.pixel_size + (10 * front.pixel_size),
 		-(row * 18 * front.pixel_size + (10 * front.pixel_size)),
 		0
 	)
+
 	add_child(ring)
+	await ring.animate_to_pos()
+	await Global.wait(0.5)
+	ring.activate(self, row, col)
+
+# destroys a ring in the grid at the specified position
+func destroy(row: int, col: int):
+	var r = wrapi(row, 0, rows)
+	var c = wrapi(col, 0, cols)
+
+	var target = grid[r][c]
+	if target:
+		target.queue_free()
+		grid[r][c] = null
+
+	for i in range(r - 1, -1, -1):
+		print(i)
+		if grid[i][c]:
+			var temp = grid[i][c]
+			grid[i][c].target_pos.y -= 18 * front.pixel_size
+			grid[i][c].animate_to_pos()
+			grid[i][c] = null
+			grid[i + 1][c] = temp
 
 func check_win():
 	var directions = [
@@ -66,8 +89,8 @@ func check_win():
 
 	for r in range(rows):
 		for c in range(cols):
-			var player = grid[r][c]
-			if player == 0:
+			var ring = grid[r][c]
+			if ring.player == 0:
 				continue
 
 			for dir in directions:
@@ -75,10 +98,10 @@ func check_win():
 				var cx = c + dir.x
 				var cy = r + dir.y
 
-				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx] == player:
+				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx].player == ring.player:
 					count += 1
 					if count >= 4:
-						return player
+						return ring.player
 					cx += dir.x
 					cy += dir.y
 
