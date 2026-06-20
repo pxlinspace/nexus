@@ -8,6 +8,9 @@ func _ready() -> void:
 	position = target_pos
 	position.y = start_y
 
-	var tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+	var tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "position", target_pos, 1.0)
+	tween.tween_callback(func(): Global.camera.shake(0.1, 0.005)).set_delay(0.4)
+	tween.tween_callback(func(): Global.camera.shake(0.1, 0.005)).set_delay(0.75)
+	tween.tween_callback(func(): Global.camera.shake(0.1, 0.005)).set_delay(0.85)
 
