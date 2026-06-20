@@ -1,6 +1,7 @@
 class_name Ring extends Sprite3D
 
 @export var ring_resource: RingResource
+@export var explosion_scene: PackedScene
 @export var start_y = 0.5
 
 var target_pos: Vector3
@@ -38,5 +39,12 @@ func activate(grid: Grid, row: int, col: int):
 			print("the ring activated doesn't have an ability")
 
 func destroy():
-	# explode the ring or some shi idk
-	pass
+	var explosion = explosion_scene.instantiate() as AnimatedSprite3D
+	visible = false
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position
+	Canvas.flash()
+	explosion.play()
+	await explosion.animation_finished
+	queue_free()
+	explosion.queue_free()
