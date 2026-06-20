@@ -2,15 +2,27 @@ class_name Grid extends Node3D
 
 @export var rows = 6
 @export var cols = 7
+@export var grid_image_width = 128
+@export var grid_image_height = 110
+@export var ring_scene: PackedScene
+
+@onready var front: Sprite3D = $Front
 
 var grid: Array[Array]
+var width: float
+var height: float
 
 func _ready() -> void:
+	width = front.pixel_size * grid_image_width
+	height = front.pixel_size * grid_image_height
+
 	init_grid()
 
 func _process(dt: float) -> void:
-	pass
+	if Input.is_action_just_pressed("s"):
+		drop_ring(1, randi_range(0, cols - 1))
 
+# fill the grid with nothing
 func init_grid():
 	for i in range(rows):
 		var r = []
@@ -34,7 +46,13 @@ func drop_ring(player: int, col: int):
 	grid[row][col] = player
 
 	# drop the actual ring visually
-	
+	var ring = ring_scene.instantiate() as Ring
+	ring.position = Vector3(
+		col * 18 * front.pixel_size + (10 * front.pixel_size),
+		-(row * 18 * front.pixel_size + (10 * front.pixel_size)),
+		0.06
+	)
+	add_child(ring)
 
 func check_win():
 	# check each row
@@ -51,4 +69,3 @@ func check_win():
 			return c[0]
 
 	return 0
-

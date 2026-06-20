@@ -7,6 +7,8 @@ load_path = "res://.godot/imported/ring.png-82ee4a7d687a095a0c4f13ec1731a21e.s3t
 
 [node name="Ring" type="Sprite3D" unique_id=1856091214]
 pixel_size = 0.012
+no_depth_test = true
 texture_filter = 0
+render_priority = 1
 texture = SubResource("CompressedTexture2D_18txc")
 script = ExtResource("1_18txc")
