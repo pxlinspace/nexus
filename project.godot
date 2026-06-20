@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 
 Global="*uid://t0o2mgvuwhyu"
 Canvas="*uid://ca1u0132yv2fr"
+AudioManager="*uid://c6813g6httuyp"
 
 [display]
 
