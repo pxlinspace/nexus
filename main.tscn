@@ -6,6 +6,7 @@
 [ext_resource type="Material" uid="uid://b8sytirvxv74x" path="res://procedural_sky.tres" id="2_7mycd"]
 [ext_resource type="PackedScene" uid="uid://cwqit3hwax25j" path="res://scenes/grid/grid.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
 sky_material = ExtResource("2_7mycd")
@@ -69,6 +70,10 @@ player_y_rot = 12.0
 
 [node name="table" parent="Turntable" unique_id=1817126526 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
+
+[node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 
