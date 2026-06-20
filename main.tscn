@@ -26,6 +26,6 @@ environment = SubResource("Environment_7dm0k")
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
 [node name="Camera" parent="." unique_id=1481131549 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 0.99619466, 0.08715573, 0, -0.08715573, 0.99619466, 0, 2, 5)
+transform = Transform3D(0.36162463, 0.08125736, -0.92877597, 0, 0.99619466, 0.08715573, 0.93232375, -0.03151766, 0.3602485, 0, 2, 5)
 fov = 100.0
 zoomed_z = 2.0
