@@ -1,11 +1,11 @@
 class_name Camera extends Camera3D
 
-@export var zoom_speed = 1.0
+@export var zoom_speed = 2.0
 @export var player_animation_speed = 10.0
 @export var zoomed_z = 4.0
 @export var zoomed_fov = 50.0
-@export var player_x_offset = 0.5
-@export var player_y_rot = 9.0
+@export var player_x_offset = 0.3
+@export var player_y_rot = 6.0
 
 var start_z = 0.0
 var start_fov = 0.0
