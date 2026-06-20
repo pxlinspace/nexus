@@ -32,12 +32,12 @@ fov = 100.0
 zoomed_z = 2.0
 
 [node name="Grid" parent="." unique_id=225806234 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7708783, 2.5380573, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7708783, 2.5482543, 0)
 
 [node name="Front" parent="Grid" index="0" unique_id=634732860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.71332335, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, 0)
 
 [node name="Back" parent="Grid" index="1" unique_id=1271485084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.71332335, -0.07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, -0.07)
 
 [editable path="Grid"]
