@@ -1,25 +1,42 @@
 [gd_scene format=3 uid="uid://cs71wkn3o1rt"]
 
+[ext_resource type="Texture2D" uid="uid://cqjjn8om70ad7" path="res://assets/images/ring_base.png" id="1_3gq6w"]
 [ext_resource type="Script" uid="uid://dwmmc6jwmv8b5" path="res://scenes/ring/ring.gd" id="1_18txc"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="2_ygikk"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="3_n35nm"]
+[ext_resource type="Texture2D" uid="uid://dxji2yl6ehrgh" path="res://assets/images/ring_gems.png" id="5_2gbiu"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_18txc"]
-load_path = "res://.godot/imported/ring.png-82ee4a7d687a095a0c4f13ec1731a21e.s3tc.ctex"
+[sub_resource type="AtlasTexture" id="AtlasTexture_45hdw"]
+atlas = ExtResource("1_3gq6w")
+region = Rect2(0, 0, 16, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3gq6w"]
+atlas = ExtResource("1_3gq6w")
+region = Rect2(0, 0, 16, 18)
 
 [sub_resource type="Resource" id="Resource_18txc"]
 script = ExtResource("2_ygikk")
 name = "default"
 desc = "default"
-texture = ExtResource("3_n35nm")
+texture = SubResource("AtlasTexture_3gq6w")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_7xiou"]
+atlas = ExtResource("5_2gbiu")
+region = Rect2(48, 0, 16, 18)
+
 [node name="Ring" type="Sprite3D" unique_id=1856091214]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5148137, 0.13965225, 0.2688474)
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
 render_priority = 1
-texture = SubResource("CompressedTexture2D_18txc")
+texture = SubResource("AtlasTexture_45hdw")
 script = ExtResource("1_18txc")
 ring_resource = SubResource("Resource_18txc")
+
+[node name="Gem" type="Sprite3D" parent="." unique_id=1862320048]
+pixel_size = 0.012
+texture_filter = 0
+render_priority = 20
+texture = SubResource("AtlasTexture_7xiou")
