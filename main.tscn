@@ -61,9 +61,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, -0.07)
 
 [node name="Camera" parent="Turntable" unique_id=1481131549 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(0.36162466, 0.081257366, -0.92877597, 0, 0.9961947, 0.08715574, 0.9323238, -0.031517662, 0.36024854, 0, 2, 5)
+transform = Transform3D(0.5030199, 0.07532651, -0.860986, 0, 0.9961947, 0.08715574, 0.8642748, -0.043841075, 0.5011058, 0, 2.1927938, 5)
 fov = 100.0
-zoomed_z = 2.0
+zoomed_z = 2.5
+player_x_offset = 0.4
 
 [node name="table" parent="Turntable" unique_id=1817126526 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
