@@ -47,6 +47,7 @@ func drop_ring(player: int, col: int):
 	grid[row][col] = player
 
 	# drop the actual ring visually
+	get_parent().get_parent().flash()
 	var ring = ring_scene.instantiate() as Ring
 	ring.target_pos = Vector3(
 		col * 18 * front.pixel_size + (10 * front.pixel_size),

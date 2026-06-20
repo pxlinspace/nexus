@@ -39,6 +39,12 @@ size = Vector2(1000, 1000)
 script = ExtResource("1_lquwl")
 sky_scroll_amount = 10.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1110672860]
+
+[node name="Flashbang" type="ColorRect" parent="CanvasLayer" unique_id=1052791237]
+offset_right = 640.0
+offset_bottom = 360.0
+
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=338819543]
 environment = SubResource("Environment_7dm0k")
 
