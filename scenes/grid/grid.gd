@@ -56,18 +56,32 @@ func drop_ring(player: int, col: int):
 	)
 	add_child(ring)
 
-func check_win():
-	# check each row
-	for row in grid:
-		if row.all(func(n: int): return n == row[0]) and row[0] != 0:
-			return row[0]
+	print(check_win())
 
-	# check each column
-	for i in range(cols):
-		var c = []
-		for x in range(rows):
-			c.append(grid[x][i])
-		if c.all(func(n: int): return n == c[0]) and c[0] != 0:
-			return c[0]
+func check_win():
+	var directions = [
+		Vector2(1, 0),
+		Vector2(0, 1),
+		Vector2(1, 1),
+		Vector2(1, -1),
+	]
+
+	for r in range(rows):
+		for c in range(cols):
+			var player = grid[r][c]
+			if player == 0:
+				continue
+
+			for dir in directions:
+				var count = 1
+				var cx = c + dir.x
+				var cy = r + dir.y
+
+				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx] == player:
+					count += 1
+					if count >= 4:
+						return player
+					cx += dir.x
+					cy += dir.y
 
 	return 0

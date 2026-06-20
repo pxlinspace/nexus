@@ -53,6 +53,7 @@ offset_right = 640.0
 offset_bottom = 360.0
 
 [node name="Squiggle" type="ColorRect" parent="CanvasLayer" unique_id=2068046457]
+visible = false
 material = SubResource("ShaderMaterial_7mycd")
 offset_right = 640.0
 offset_bottom = 360.0
