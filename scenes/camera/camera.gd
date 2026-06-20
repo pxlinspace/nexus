@@ -27,7 +27,7 @@ func _ready() -> void:
 	start_z = position.z
 	start_fov = fov
 	zoom(true)
-	change_player(-1)
+	change_player(0)
 	original_pos = Vector2(h_offset, v_offset)
 
 func _process(dt: float) -> void:
