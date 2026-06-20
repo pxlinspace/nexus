@@ -56,8 +56,6 @@ func drop_ring(player: int, col: int):
 	)
 	add_child(ring)
 
-	print(check_win())
-
 func check_win():
 	var directions = [
 		Vector2(1, 0),
