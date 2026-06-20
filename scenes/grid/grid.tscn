@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://cwqit3hwax25j"]
+
+[ext_resource type="Texture2D" uid="uid://d2o505jq10agk" path="res://assets/images/grid.png" id="1_x0e5n"]
+[ext_resource type="Script" uid="uid://bjwwurk8v763o" path="res://scenes/grid/grid.gd" id="1_yuyu4"]
+
+[node name="Grid" type="Node3D" unique_id=225806234]
+script = ExtResource("1_yuyu4")
+
+[node name="Front" type="Sprite3D" parent="." unique_id=634732860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, 0)
+modulate = Color(0.9411765, 0.9411765, 0.9411765, 1)
+pixel_size = 0.012
+texture_filter = 0
+texture = ExtResource("1_x0e5n")
+
+[node name="Back" type="Sprite3D" parent="." unique_id=1271485084]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, -0.07)
+modulate = Color(1, 0, 0.33333334, 1)
+pixel_size = 0.012
+texture_filter = 0
+texture = ExtResource("1_x0e5n")

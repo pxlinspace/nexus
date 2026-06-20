@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cqa1pha0oocru" path="res://assets/models/table.blend" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c2123vehrpvka" path="res://scenes/camera/camera.tscn" id="2_0xm2m"]
-[ext_resource type="Texture2D" uid="uid://d2o505jq10agk" path="res://assets/images/grid.png" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://cwqit3hwax25j" path="res://scenes/grid/grid.tscn" id="3_h2yge"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_7dm0k"]
 sky_top_color = Color(0.53333336, 0, 1, 1)
@@ -31,16 +31,5 @@ transform = Transform3D(0.36162463, 0.08125736, -0.92877597, 0, 0.99619466, 0.08
 fov = 100.0
 zoomed_z = 2.0
 
-[node name="Grid" type="Sprite3D" parent="." unique_id=1311476353]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8223495, 0)
-modulate = Color(0.9411765, 0.9411765, 0.9411765, 1)
-pixel_size = 0.012
-texture_filter = 0
-texture = ExtResource("3_h2yge")
-
-[node name="Grid2" type="Sprite3D" parent="." unique_id=1522169978]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.822, -0.07)
-modulate = Color(1, 0, 0.33333334, 1)
-pixel_size = 0.012
-texture_filter = 0
-texture = ExtResource("3_h2yge")
+[node name="Grid" parent="." unique_id=225806234 instance=ExtResource("3_h2yge")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.799458, 0)
