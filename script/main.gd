@@ -9,5 +9,7 @@ extends Node3D
 
 @onready var turntable: Node3D = $Turntable
 
+var camera: Camera
+
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
