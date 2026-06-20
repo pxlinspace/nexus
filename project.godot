@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="nexus"
+run/main_scene="uid://frnr3s8yjvhh"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+boot_splash/use_filter=false
 config/icon="res://icon.svg"
 
 [autoload]
@@ -59,3 +61,5 @@ textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
+textures/decals/filter=0
+textures/light_projectors/filter=0
