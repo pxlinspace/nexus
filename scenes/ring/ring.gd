@@ -49,8 +49,8 @@ func activate(grid: Grid, row: int, col: int):
 func bump(dir: Vector2):
 	var tween = create_tween()
 	var original_pos = position
-	position += Vector3(dir.x, -dir.y, 0) * 0.05
-	tween.tween_property(self, "position", original_pos, 0.5)
+	position += Vector3(dir.x, -dir.y, 0) * 0.075
+	tween.tween_property(self, "position", original_pos, 0.2)
 
 func destroy():
 	var explosion = explosion_scene.instantiate() as AnimatedSprite3D
