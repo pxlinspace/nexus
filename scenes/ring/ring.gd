@@ -1,6 +1,7 @@
 class_name Ring extends Sprite3D
 
 @export var ring_resource: RingResource
+@export var explosion_scene: PackedScene
 @export var start_y = 0.5
 
 var target_pos: Vector3
@@ -26,17 +27,38 @@ func bounce():
 
 func activate(grid: Grid, row: int, col: int):
 	match ring_resource.type:
-		RingResource.RingType.SPADES_UP:
-			grid.destroy(row + 1, col - 1)
-		RingResource.RingType.CLUBS_DOWN:
-			grid.destroy(row + 1, col + 1)
+		RingResource.RingType.SPADES_BOTTOM_LEFT:
+			bump(Vector2(-1, -1))
+			await grid.destroy(row + 1, col - 1)
+		RingResource.RingType.CLUBS_BOTTOM_RIGHT:
+			bump(Vector2(1, -1))
+			await grid.destroy(row + 1, col + 1)
 		RingResource.RingType.HEARTS_LEFT:
-			grid.destroy(row, col - 1)
+			bump(Vector2(-1, 0))
+			await grid.destroy(row, col - 1)
 		RingResource.RingType.DIAMONDS_RIGHT:
-			grid.destroy(row, col + 1)
+			bump(Vector2(1, 0))
+			await grid.destroy(row, col + 1)
+		RingResource.RingType.HEAVY:
+			for i in range(row + 1, grid.rows):
+				bump(Vector2(0, 1))
+				await grid.destroy(i, col)
 		_:
 			print("the ring activated doesn't have an ability")
 
+func bump(dir: Vector2):
+	var tween = create_tween()
+	var original_pos = position
+	position += Vector3(dir.x, -dir.y, 0) * 0.075
+	tween.tween_property(self, "position", original_pos, 0.2)
+
 func destroy():
-	# explode the ring or some shi idk
-	pass
+	var explosion = explosion_scene.instantiate() as AnimatedSprite3D
+	visible = false
+	get_parent().add_child(explosion)
+	explosion.global_position = global_position
+	Canvas.flash()
+	explosion.play()
+	await explosion.animation_finished
+	queue_free()
+	explosion.queue_free()

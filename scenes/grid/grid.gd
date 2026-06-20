@@ -5,6 +5,7 @@ class_name Grid extends Node3D
 @export var grid_image_width = 128
 @export var grid_image_height = 110
 @export var ring_scene: PackedScene
+@export var all_ring_resources: Array[RingResource]
 
 @onready var front: Sprite3D = $Front
 
@@ -20,7 +21,9 @@ func _ready() -> void:
 
 func _process(dt: float) -> void:
 	if Input.is_action_just_pressed("s"):
-		drop_ring(1, randi_range(0, cols - 1))
+		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[0])
+	if Input.is_action_just_pressed("space"):
+		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[1])
 
 # fill the grid with nothing
 func init_grid():
@@ -31,7 +34,7 @@ func init_grid():
 		grid.append(r)
 
 # drops a ring in the specified column
-func drop_ring(player: int, col: int):
+func drop_ring(player: int, col: int, resource: RingResource):
 	# start from the lowest row
 	var row = rows - 1
 	while row >= 0:
@@ -47,6 +50,7 @@ func drop_ring(player: int, col: int):
 	# drop the actual ring visually
 	Canvas.flash()
 	var ring = ring_scene.instantiate() as Ring
+	ring.ring_resource = resource
 	grid[row][col] = ring
 	ring.player = player
 	ring.target_pos = Vector3(
@@ -57,8 +61,8 @@ func drop_ring(player: int, col: int):
 
 	add_child(ring)
 	await ring.animate_to_pos()
-	await Global.wait(0.5)
-	ring.activate(self, row, col)
+	await Global.wait(0.4)
+	await ring.activate(self, row, col)
 
 # destroys a ring in the grid at the specified position
 func destroy(row: int, col: int):
@@ -67,11 +71,11 @@ func destroy(row: int, col: int):
 
 	var target = grid[r][c]
 	if target:
-		target.queue_free()
+		Global.camera.shake(0.1, 0.01)
+		await target.destroy()
 		grid[r][c] = null
 
 	for i in range(r - 1, -1, -1):
-		print(i)
 		if grid[i][c]:
 			var temp = grid[i][c]
 			grid[i][c].target_pos.y -= 18 * front.pixel_size
