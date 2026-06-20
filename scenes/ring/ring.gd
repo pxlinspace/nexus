@@ -28,18 +28,29 @@ func bounce():
 func activate(grid: Grid, row: int, col: int):
 	match ring_resource.type:
 		RingResource.RingType.SPADES_BOTTOM_LEFT:
+			bump(Vector2(-1, -1))
 			await grid.destroy(row + 1, col - 1)
 		RingResource.RingType.CLUBS_BOTTOM_RIGHT:
+			bump(Vector2(1, -1))
 			await grid.destroy(row + 1, col + 1)
 		RingResource.RingType.HEARTS_LEFT:
+			bump(Vector2(-1, 0))
 			await grid.destroy(row, col - 1)
 		RingResource.RingType.DIAMONDS_RIGHT:
+			bump(Vector2(1, 0))
 			await grid.destroy(row, col + 1)
 		RingResource.RingType.HEAVY:
 			for i in range(row + 1, grid.rows):
+				bump(Vector2(0, 1))
 				await grid.destroy(i, col)
 		_:
 			print("the ring activated doesn't have an ability")
+
+func bump(dir: Vector2):
+	var tween = create_tween()
+	var original_pos = position
+	position += Vector3(dir.x, -dir.y, 0) * 0.05
+	tween.tween_property(self, "position", original_pos, 0.5)
 
 func destroy():
 	var explosion = explosion_scene.instantiate() as AnimatedSprite3D

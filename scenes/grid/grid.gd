@@ -76,7 +76,6 @@ func destroy(row: int, col: int):
 		grid[r][c] = null
 
 	for i in range(r - 1, -1, -1):
-		print(i)
 		if grid[i][c]:
 			var temp = grid[i][c]
 			grid[i][c].target_pos.y -= 18 * front.pixel_size
