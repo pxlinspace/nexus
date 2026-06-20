@@ -34,14 +34,14 @@ func init_grid():
 func drop_ring(player: int, col: int):
 	# start from the lowest row
 	var row = rows - 1
-	while row > 0:
+	while row >= 0:
 		if grid[row][col] == 0:
 			break
 		row -= 1
 
 	if row == -1:
 		# this means there is no space in the column
-		return
+		print("there's no space in that column")
 
 	grid[row][col] = player
 
