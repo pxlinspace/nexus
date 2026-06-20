@@ -4,7 +4,8 @@ enum RingType {
 	SPADES_BOTTOM_LEFT,
 	CLUBS_BOTTOM_RIGHT,
 	HEARTS_LEFT,
-	DIAMONDS_RIGHT
+	DIAMONDS_RIGHT,
+	HEAVY
 }
 
 @export var name: String

@@ -13,7 +13,6 @@ script = ExtResource("2_ygikk")
 name = "default"
 desc = "default"
 texture = ExtResource("3_n35nm")
-type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
 
 [node name="Ring" type="Sprite3D" unique_id=1856091214]

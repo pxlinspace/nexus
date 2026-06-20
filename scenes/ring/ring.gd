@@ -28,13 +28,16 @@ func bounce():
 func activate(grid: Grid, row: int, col: int):
 	match ring_resource.type:
 		RingResource.RingType.SPADES_BOTTOM_LEFT:
-			grid.destroy(row + 1, col - 1)
+			await grid.destroy(row + 1, col - 1)
 		RingResource.RingType.CLUBS_BOTTOM_RIGHT:
-			grid.destroy(row + 1, col + 1)
+			await grid.destroy(row + 1, col + 1)
 		RingResource.RingType.HEARTS_LEFT:
-			grid.destroy(row, col - 1)
+			await grid.destroy(row, col - 1)
 		RingResource.RingType.DIAMONDS_RIGHT:
-			grid.destroy(row, col + 1)
+			await grid.destroy(row, col + 1)
+		RingResource.RingType.HEAVY:
+			for i in range(row + 1, grid.rows):
+				await grid.destroy(i, col)
 		_:
 			print("the ring activated doesn't have an ability")
 
