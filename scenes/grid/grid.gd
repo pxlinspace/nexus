@@ -57,7 +57,7 @@ func drop_ring(player: int, col: int):
 
 	add_child(ring)
 	await ring.animate_to_pos()
-	await Global.wait(0.5)
+	await Global.wait(0.4)
 	ring.activate(self, row, col)
 
 # destroys a ring in the grid at the specified position
@@ -67,7 +67,8 @@ func destroy(row: int, col: int):
 
 	var target = grid[r][c]
 	if target:
-		target.queue_free()
+		Global.camera.shake(0.1, 0.01)
+		target.destroy()
 		grid[r][c] = null
 
 	for i in range(r - 1, -1, -1):
