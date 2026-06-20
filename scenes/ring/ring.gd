@@ -27,9 +27,9 @@ func bounce():
 
 func activate(grid: Grid, row: int, col: int):
 	match ring_resource.type:
-		RingResource.RingType.SPADES_UP:
+		RingResource.RingType.SPADES_BOTTOM_LEFT:
 			grid.destroy(row + 1, col - 1)
-		RingResource.RingType.CLUBS_DOWN:
+		RingResource.RingType.CLUBS_BOTTOM_RIGHT:
 			grid.destroy(row + 1, col + 1)
 		RingResource.RingType.HEARTS_LEFT:
 			grid.destroy(row, col - 1)
