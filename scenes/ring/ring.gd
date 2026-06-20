@@ -17,3 +17,4 @@ func _ready() -> void:
 func hit():
 	Global.camera.shake(0.1, 0.005)
 	# probably play a sound effect here
+	AudioManager.play_sound(AudioManager.hit)

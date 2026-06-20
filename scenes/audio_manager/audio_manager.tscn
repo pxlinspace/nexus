@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c6813g6httuyp"]
+
+[ext_resource type="Script" uid="uid://bifdbhusi7yhf" path="res://scenes/audio_manager/audio_manager.gd" id="1_jim7f"]
+[ext_resource type="AudioStream" uid="uid://cwd50ddkyd1ip" path="res://assets/sfx/pipe.wav" id="2_0wpo5"]
+
+[node name="AudioManager" type="AudioStreamPlayer" unique_id=1563554082]
+max_polyphony = 5
+script = ExtResource("1_jim7f")
+hit = ExtResource("2_0wpo5")
