@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://byjf0dodcyeyd"]
+
+[ext_resource type="Script" uid="uid://c6gltbqlox2o0" path="res://scenes/GUI/finger_ring.gd" id="1_ohdcq"]
+
+[node name="FingerRing" type="Area2D" unique_id=993510901]
+script = ExtResource("1_ohdcq")
