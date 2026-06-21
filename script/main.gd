@@ -104,13 +104,15 @@ func _on_grid_ring_dropped() -> void:
 
 		update_player_score(curr_player, 1)
 
+		await Global.wait(3.0)
+
 		curtains_transition.transition_in()
 
 		tween = create_tween().set_trans(Tween.TRANS_SINE)
 		tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
 		tween.tween_property(rounds_win_text, "position:y", -360, 0.5).set_ease(Tween.EASE_IN).set_delay(1.75)
 
-		await Global.wait(4.0)
+		await Global.wait(3.0)
 
 		if round >= len(grid.grid_textures) - 1:
 			end_game()

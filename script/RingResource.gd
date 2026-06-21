@@ -11,7 +11,8 @@ enum RingType {
 	ONE_RING,
 	WEDDING,
 	COPY,
-	DOUBLE
+	DOUBLE,
+	ASTEROID
 }
 
 @export var name: String
