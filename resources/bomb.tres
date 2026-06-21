@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://dpe8t34h74gwv"]
+
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_08hjm"]
+[ext_resource type="Texture2D" uid="uid://dgh2wogvcw13e" path="res://assets/images/ring_gems3.png" id="2_f7nem"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ryyn"]
+atlas = ExtResource("2_f7nem")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_08hjm")
+name = "Bomb Ring"
+desc = "Destroys the lowest ring in the column."
+texture = SubResource("AtlasTexture_5ryyn")
+type = 11
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"

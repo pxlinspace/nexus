@@ -16,7 +16,8 @@ const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
 		"res://resources/diamonds_right.tres",
 		"res://resources/hearts_left.tres",
 		"res://resources/spades_bottom_left.tres",
-		"res://resources/copy.tres"
+		"res://resources/copy.tres",
+		"res://resources/bomb.tres"
 	],
 	RING_RARITY.RARE: [
 		"res://resources/heavy.tres",

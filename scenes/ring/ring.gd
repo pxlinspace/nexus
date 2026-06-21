@@ -65,6 +65,9 @@ func activate(grid: Grid, row: int, col: int):
 			var ring = grid.get_pos(row, col - 1) as Ring
 			if ring != null and ring.ring_resource.type != RingResource.RingType.COPY:
 				await ring.activate(grid, row, col)
+		RingResource.RingType.BOMB:
+			bump(Vector2(0, 1))
+			await grid.destroy(grid.rows - 1, col)
 		_:
 			print("the ring activated doesn't have an ability")
 
