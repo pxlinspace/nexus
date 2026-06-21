@@ -20,13 +20,13 @@ const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
 	],
 	RING_RARITY.RARE: [
 		"res://resources/heavy.tres",
-		"res://resources/thorn.tres",
 		"res://resources/copy.tres",
 		"res://resources/wedding.tres",
 	],
 }
 
 const RING_COUNT: int = 5
+const NORMAL = preload("uid://devp2cw6v1fru")
 
 @export var ring_resources = []
 var ring_ages: Array[int] = []
@@ -34,7 +34,8 @@ var ring_ages: Array[int] = []
 
 func _ready() -> void:
 	for i in RING_COUNT:
-		ring_resources.append(_get_random_ring_resource())
+		#ring_resources.append(_get_random_ring_resource())
+		ring_resources.append(NORMAL)
 		ring_ages.append(0)
 
 
@@ -45,9 +46,9 @@ func replace_ring(index) -> void:
 func increment_ring_ages() -> void:
 	for i in RING_COUNT:
 		ring_ages[i] += 1
-		if ring_ages[i] >= ring_resources[i].turn_lifespan:
+		if ring_ages[i] >= ring_resources[i].turn_lifespan and ring_resources[i] != load("res://resources/normal.tres") and ring_resources[i] != load("res://resources/broken.tres"):
 			ring_ages[i] = 0
-			replace_ring(i)
+			ring_resources[i] = load("res://resources/broken.tres")
 
 
 func _get_random_ring_resource() -> RingResource:

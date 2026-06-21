@@ -112,8 +112,7 @@ func _on_grid_ring_dropped() -> void:
 
 		await Global.wait(4.0)
 
-		#if round >= len(grid.grid_textures) - 1:
-		if true:
+		if round >= len(grid.grid_textures) - 1:
 			end_game()
 			return
 

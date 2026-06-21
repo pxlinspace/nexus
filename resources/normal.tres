@@ -4,6 +4,6 @@
 
 [resource]
 script = ExtResource("1_n2qed")
-name = "Standard Ring"
-desc = "Just a plain old ring."
+name = "Normal Ring"
+desc = "Just a normal ring"
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
