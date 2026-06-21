@@ -58,13 +58,7 @@ autostart = true
 mesh = SubResource("PlaneMesh_1bvp3")
 
 [node name="Grid" parent="Turntable" unique_id=225806234 instance=ExtResource("3_h2yge")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7708783, 2.5482543, 0)
-
-[node name="Front" parent="Turntable/Grid" index="0" unique_id=634732860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, 0)
-
-[node name="Back" parent="Turntable/Grid" index="1" unique_id=1271485084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.768, -0.7235203, -0.07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.771212, 2.5266418, 0)
 
 [node name="Camera" parent="Turntable" unique_id=1481131549 instance=ExtResource("2_0xm2m")]
 transform = Transform3D(0.5030199, 0.07532651, -0.860986, 0, 0.9961947, 0.08715574, 0.8642748, -0.043841075, 0.5011058, 0, 2.1927938, 5)
@@ -87,10 +81,11 @@ outline_size = 0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
-[node name="PlayerData" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
-ring_resources = null
+[node name="PlayerData1" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
+ring_resources = Array[Object]([])
+
+[node name="PlayerData2" parent="." unique_id=882454325 instance=ExtResource("10_4c57u")]
+ring_resources = Array[Object]([])
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
-
-[editable path="Turntable/Grid"]

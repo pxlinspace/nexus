@@ -15,7 +15,7 @@ region = Rect2(16, 0, 16, 18)
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
-render_priority = 20
+render_priority = 60
 texture = ExtResource("1_3gq6w")
 region_rect = Rect2(16, 0, 0, 0)
 script = ExtResource("1_18txc")
@@ -24,5 +24,7 @@ explosion_scene = ExtResource("4_n35nm")
 
 [node name="Base" type="Sprite3D" parent="." unique_id=47644020]
 pixel_size = 0.012
+no_depth_test = true
 texture_filter = 0
+render_priority = 20
 texture = SubResource("AtlasTexture_413t8")
