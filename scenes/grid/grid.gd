@@ -51,7 +51,7 @@ func drop_ring(player: int, col: int, resource: RingResource):
 	grid[row][col] = ring
 	ring.target_pos = Vector3(
 		col * 18 * front.pixel_size + (10 * front.pixel_size),
-		-(row * 18 * front.pixel_size + (10 * front.pixel_size)),
+		-(row * 18 * front.pixel_size + (11 * front.pixel_size)),
 		0
 	)
 

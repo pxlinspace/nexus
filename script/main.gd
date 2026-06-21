@@ -35,6 +35,7 @@ func next_round():
 
 	await Global.wait(1.5)
 
+	round_text.rotation_degrees.x = 0
 	round_text.position = original_round_text_pos
 	round_text.text = "ROUND " + str(round + 1)
 	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
