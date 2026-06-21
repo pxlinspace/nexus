@@ -63,6 +63,7 @@ shape = SubResource("CircleShape2D_lg3a2")
 position = Vector2(441, 0)
 
 [node name="TextBox" type="ColorRect" parent="Description" unique_id=31126398]
+visible = false
 offset_left = -180.0
 offset_top = 187.0
 offset_right = 188.0
