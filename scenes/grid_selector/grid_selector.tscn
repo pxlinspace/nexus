@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dx4uibp8skkg2"]
+
+[ext_resource type="Script" uid="uid://dclogmby8dk8h" path="res://scenes/grid_selector/grid_selector.gd" id="1_y7m13"]
+[ext_resource type="PackedScene" uid="uid://d4ix2om8nmq6c" path="res://scenes/grid_selector/grid_col_area.tscn" id="2_qjqkb"]
+
+[node name="GridSelector" type="Node2D" unique_id=1135313067]
+script = ExtResource("1_y7m13")
+grid_col_area_scene = ExtResource("2_qjqkb")
+metadata/_edit_vertical_guides_ = [320.0]
+metadata/_edit_horizontal_guides_ = [180.0]
