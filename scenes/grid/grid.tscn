@@ -23,7 +23,7 @@ texture = ExtResource("1_x0e5n")
 
 [node name="Back" type="Sprite3D" parent="." unique_id=1271485084]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, -0.07)
-modulate = Color(0.73333335, 0.33333334, 0.13333334, 1)
+modulate = Color(0.8, 1, 0, 1)
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0

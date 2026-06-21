@@ -76,5 +76,6 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
+[connection signal="ring_selected" from="HUD/RingSelector" to="." method="_on_ring_selector_ring_selected"]
 
 [editable path="Turntable/Grid"]

@@ -26,8 +26,6 @@ func _enter_tree() -> void:
 func _ready() -> void:
 	start_z = position.z
 	start_fov = fov
-	zoom(true)
-	change_player(0)
 	original_pos = Vector2(h_offset, v_offset)
 
 func _process(dt: float) -> void:
@@ -36,12 +34,12 @@ func _process(dt: float) -> void:
 	position.x = lerp(position.x, target_x, player_animation_speed * dt)
 	rotation_degrees.y = lerp(rotation_degrees.y, target_y_rot, player_animation_speed * dt)
 
-	if Input.is_action_just_pressed("a"):
-		change_player(-1)
-	if Input.is_action_just_pressed("d"):
-		change_player(1)
-	if Input.is_action_just_pressed("w"):
-		change_player(0)
+	# if Input.is_action_just_pressed("a"):
+	# 	change_player(-1)
+	# if Input.is_action_just_pressed("d"):
+	# 	change_player(1)
+	# if Input.is_action_just_pressed("w"):
+	# 	change_player(0)
 
 	h_offset = original_pos.x
 	v_offset = original_pos.y

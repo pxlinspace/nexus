@@ -2,13 +2,17 @@
 
 [ext_resource type="Texture2D" uid="uid://bcddodxjkyym2" path="res://assets/images/desc_graphics/hearts_left.png" id="1_a2vcl"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_y81g1"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_ehssc"]
+[ext_resource type="Texture2D" uid="uid://cqjjn8om70ad7" path="res://assets/images/ring_base.png" id="2_ehssc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2vcl"]
+atlas = ExtResource("2_ehssc")
+region = Rect2(0, 0, 16, 18)
 
 [resource]
 script = ExtResource("1_y81g1")
 name = "ring of hearts"
 desc = "destroy the left adjacent ring"
 desc_graphic = ExtResource("1_a2vcl")
-texture = ExtResource("2_ehssc")
+texture = SubResource("AtlasTexture_a2vcl")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
