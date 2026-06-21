@@ -95,5 +95,14 @@ asdfasdfasdfasdfas"
 position = Vector2(102, 266)
 scale = Vector2(3, 3)
 
+[node name="ExpireLabel" type="Label" parent="Description" unique_id=365690134]
+offset_left = -164.0
+offset_top = 158.0
+offset_right = 28.0
+offset_bottom = 184.0
+theme_override_fonts/font = ExtResource("10_0hqad")
+theme_override_font_sizes/font_size = 32
+text = "expires in # turns"
+
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]
 [connection signal="area_exited" from="MouseArea" to="." method="_on_mouse_area_area_exited"]

@@ -72,6 +72,10 @@ func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
+	if curr_player == 1:
+		player_data_1.increment_ring_ages()
+	else:
+		player_data_2.increment_ring_ages()
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
@@ -85,7 +89,7 @@ func _on_grid_ring_dropped() -> void:
 		round += 1
 		grid.change_size(round)
 		return
-
+	
 	curr_player = 1 if curr_player == 2 else 2
 	var ring_selector = ring_selector_scene.instantiate()
 	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2
