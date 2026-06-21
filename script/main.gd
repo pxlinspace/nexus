@@ -16,7 +16,7 @@ var grid: Grid
 var selected_ring_resource: RingResource
 
 var round = 0
-var curr_player = 2
+var curr_player = 1
 
 func _enter_tree() -> void:
 	Global.main = self
@@ -33,7 +33,10 @@ func _ready() -> void:
 	tween.tween_property(round_text, "rotation_degrees:x", -90, 0.75)
 	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion))
 
-	_on_grid_ring_dropped()
+	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
+	hud_canvas.add_child(ring_selector)
+	Global.camera.change_player(-1)
 
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
@@ -56,3 +59,7 @@ func _on_grid_ring_dropped() -> void:
 	hud_canvas.add_child(ring_selector)
 	curr_player = 1 if curr_player == 2 else 2
 	Global.camera.change_player(1 if curr_player == 2 else -1)
+
+	# check win
+	if grid.check_win() > 0:
+		print("player " + str(grid.check_win()) + " wins!")

@@ -76,7 +76,7 @@ player_y_rot = 12.0
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
 [node name="RoundText" type="Label3D" parent="Turntable" unique_id=1640837884]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.787, 0.625)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.9859128, 0.625)
 texture_filter = 0
 render_priority = 100
 text = "ROUND 1"

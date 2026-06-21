@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://d1xytpunpikvw" path="res://scenes/explosion/explosion.tscn" id="4_n35nm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_413t8"]
+resource_local_to_scene = true
 atlas = ExtResource("4_2gbiu")
 region = Rect2(16, 0, 16, 18)
 
@@ -16,6 +17,7 @@ no_depth_test = true
 texture_filter = 0
 render_priority = 20
 texture = ExtResource("1_3gq6w")
+region_rect = Rect2(16, 0, 0, 0)
 script = ExtResource("1_18txc")
 ring_resource = ExtResource("3_3gq6w")
 explosion_scene = ExtResource("4_n35nm")

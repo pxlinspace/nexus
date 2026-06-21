@@ -4,13 +4,16 @@ class_name Ring extends Sprite3D
 @export var explosion_scene: PackedScene
 @export var start_y = 0.5
 
+@onready var base: Sprite3D = $Base
+
 var target_pos: Vector3
-var player: int
+var player = 0
 
 func _ready() -> void:
 	position = target_pos
 	position.y = start_y
 	texture = ring_resource.texture
+	base.texture.region.position.x = (player - 1) * 16
 
 func animate_to_pos():
 	var tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
