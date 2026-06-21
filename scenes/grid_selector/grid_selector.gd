@@ -24,7 +24,6 @@ func _ready() -> void:
 	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(pinch_hand, "position:y", 24, 0.5)
 
-
 func _process(dt: float) -> void:
 	mouse_area.position = get_local_mouse_position()
 	pinch_hand.position.x = lerp(pinch_hand.position.x, target_hand_x, 20.0 * dt)

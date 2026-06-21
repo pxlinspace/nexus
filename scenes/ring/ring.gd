@@ -2,7 +2,7 @@ class_name Ring extends Sprite3D
 
 @export var ring_resource: RingResource
 @export var explosion_scene: PackedScene
-@export var start_y = 0.5
+@export var start_y = 2.5
 
 @onready var base: Sprite3D = $Base
 
@@ -11,7 +11,7 @@ var player = 0
 
 func _ready() -> void:
 	position = target_pos
-	position.y = start_y
+	global_position.y = start_y
 	texture = ring_resource.texture
 	base.texture.region.position.x = (player - 1) * 16
 

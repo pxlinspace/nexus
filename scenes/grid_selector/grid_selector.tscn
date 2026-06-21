@@ -22,8 +22,7 @@ shape = SubResource("CircleShape2D_qjqkb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=753189812]
 
-[node name="PinchHand" type="Sprite2D" parent="." unique_id=1626178017]
-position = Vector2(320, -40)
+[node name="PinchHand" type="Sprite2D" parent="." unique_id=1522556356]
 texture = ExtResource("3_yhvd6")
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]
