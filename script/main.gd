@@ -58,6 +58,7 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 	Global.camera.change_player(0)
 	# instantiate the column selector
 	var grid_selector = grid_selector_scene.instantiate()
+	grid_selector.set_player(curr_player)
 	grid_selector.col_selected.connect(_on_grid_selector_col_selected)
 	hud_canvas.add_child(grid_selector)
 
