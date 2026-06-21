@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://cs71wkn3o1rt"]
 
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://c4xub8rb7rdy2" path="res://resources/yellow_diamond.tres" id="1_2gbiu"]
 [ext_resource type="Texture2D" uid="uid://px62o3gf710u" path="res://resources/brown_ring.tres" id="1_3gq6w"]
+=======
+>>>>>>> a5eaa7cd791f79c8199af685d9cfb45356e72c54
 [ext_resource type="Script" uid="uid://dwmmc6jwmv8b5" path="res://scenes/ring/ring.gd" id="1_18txc"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="2_ygikk"]
 [ext_resource type="Texture2D" uid="uid://cqjjn8om70ad7" path="res://assets/images/ring_base.png" id="4_2gbiu"]
@@ -19,16 +22,25 @@ region = Rect2(0, 0, 16, 18)
 script = ExtResource("2_ygikk")
 name = "default"
 desc = "default"
+<<<<<<< HEAD
+texture = ExtResource("1_2gbiu")
+=======
 texture = SubResource("AtlasTexture_4tlej")
 type = 2
+>>>>>>> a5eaa7cd791f79c8199af685d9cfb45356e72c54
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
 
 [node name="Ring" type="Sprite3D" unique_id=1856091214]
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
+<<<<<<< HEAD
+render_priority = 20
+texture = ExtResource("1_2gbiu")
+=======
 render_priority = 1
 texture = SubResource("AtlasTexture_3gq6w")
+>>>>>>> a5eaa7cd791f79c8199af685d9cfb45356e72c54
 script = ExtResource("1_18txc")
 ring_resource = SubResource("Resource_18txc")
 explosion_scene = ExtResource("4_n35nm")

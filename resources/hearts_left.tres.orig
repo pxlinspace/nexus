@@ -1,12 +1,15 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://bjiu3vma1801q"]
 
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_y81g1"]
+<<<<<<< HEAD
+[ext_resource type="Texture2D" uid="uid://bckxn06iw378h" path="res://resources/red_heart.tres" id="2_ehssc"]
+=======
 [ext_resource type="Texture2D" uid="uid://cqjjn8om70ad7" path="res://assets/images/ring_base.png" id="2_ehssc"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a2vcl"]
 atlas = ExtResource("2_ehssc")
 region = Rect2(0, 0, 16, 18)
-[ext_resource type="Texture2D" uid="uid://bckxn06iw378h" path="res://resources/red_heart.tres" id="2_ehssc"]
+>>>>>>> a5eaa7cd791f79c8199af685d9cfb45356e72c54
 
 [resource]
 script = ExtResource("1_y81g1")
