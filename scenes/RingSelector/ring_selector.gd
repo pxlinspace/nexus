@@ -16,6 +16,8 @@ var is_ring_used: bool = false
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
 
+var player_data: PlayerData
+
 
 func _ready() -> void:
 	hand.position.y = HAND_DOWN_POSITION_Y
@@ -25,6 +27,10 @@ func _ready() -> void:
 
 	text_box.hide()
 	description_label.visible_ratio = 0
+
+	for i in range(player_data.ring_resources.size()):
+		if player_data.ring_resources[i] != null:
+			rings.get_child(i).ring_resource = player_data.ring_resources[i]
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
@@ -88,6 +94,7 @@ func _begin_hovered_ring_animation() -> void:
 
 func _use_hovered_ring() -> void:
 	ring_selected.emit(hovered_ring.ring_resource)
+	player_data.replace_ring(int(hovered_ring.name) - 1)
 	queue_free()
 
 

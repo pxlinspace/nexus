@@ -49,6 +49,7 @@ func next_round():
 	curr_player = 1 if round % 2 == 0 else 2
 
 	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2
 	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
 	ring_selector.set_player(curr_player)
 	hud_canvas.add_child(ring_selector)
@@ -87,6 +88,7 @@ func _on_grid_ring_dropped() -> void:
 
 	curr_player = 1 if curr_player == 2 else 2
 	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2
 	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
 	ring_selector.set_player(curr_player)
 	hud_canvas.add_child(ring_selector)
