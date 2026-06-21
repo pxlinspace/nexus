@@ -7,7 +7,9 @@
 [resource]
 script = ExtResource("1_xunor")
 name = "Ring of Spades"
-desc = "destroy the bottom left adjacent ring"
+desc = "Destroy the bottom left adjacent ring."
 desc_graphic = ExtResource("1_dxqaa")
 texture = ExtResource("3_1yyns")
+type = 1
+turn_lifespan = 6
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

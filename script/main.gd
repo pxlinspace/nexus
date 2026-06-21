@@ -9,6 +9,10 @@ class_name Main extends Node3D
 @onready var noise: Noise = sky_material.sky_cover.noise
 @onready var turntable: Node3D = $Turntable
 @onready var hud_canvas: CanvasLayer = $HUD
+@onready var round_text: Label3D = $Turntable/RoundText
+
+@onready var player_data_1: PlayerData = $PlayerData1
+@onready var player_data_2: PlayerData = $PlayerData2
 
 var camera: Camera
 var grid: Grid
@@ -16,14 +20,40 @@ var selected_ring_resource: RingResource
 
 var round = 0
 var curr_player = 1
+var original_round_text_pos: Vector3
 
 func _enter_tree() -> void:
 	Global.main = self
 	grid = $Turntable/Grid
 
 func _ready() -> void:
+	original_round_text_pos = round_text.position
+	next_round()
+
+func next_round():
+	grid.destroy_all()
+
 	Global.camera.zoom(true)
-	Global.camera.change_player(-1)
+	Global.camera.change_player(0)
+
+	await Global.wait(1.5)
+
+	round_text.rotation_degrees.x = 0
+	round_text.position = original_round_text_pos
+	round_text.text = "ROUND " + str(round + 1)
+	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.tween_property(round_text, "position", Vector3(0, 1.117, 0.625), 0.75)
+	tween.tween_property(round_text, "rotation_degrees:x", -90, 0.75)
+	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion))
+
+	curr_player = 1 if round % 2 == 0 else 2
+
+	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2
+	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
+	ring_selector.set_player(curr_player)
+	hud_canvas.add_child(ring_selector)
+	Global.camera.change_player(1 if curr_player == 2 else -1)
 
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
@@ -34,17 +64,35 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 	Global.camera.change_player(0)
 	# instantiate the column selector
 	var grid_selector = grid_selector_scene.instantiate()
+	grid_selector.set_player(curr_player)
 	grid_selector.col_selected.connect(_on_grid_selector_col_selected)
 	hud_canvas.add_child(grid_selector)
 
 func _on_grid_selector_col_selected(col: int) -> void:
-	print(col)
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
-	var ring_selector = ring_selector_scene.instantiate()
-	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
-	hud_canvas.add_child(ring_selector)
+	# check win first
+	if grid.check_win() > 0:
+		print("player " + str(grid.check_win()) + " wins!")
+		await Global.wait(1.0)
+
+		if round >= len(grid.grid_textures) - 1:
+			end_game()
+			return
+
+		next_round()
+		round += 1
+		grid.change_size(round)
+		return
+
 	curr_player = 1 if curr_player == 2 else 2
-	print(curr_player)
+	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2
+	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
+	ring_selector.set_player(curr_player)
+	hud_canvas.add_child(ring_selector)
 	Global.camera.change_player(1 if curr_player == 2 else -1)
+
+func end_game():
+	print("that's the game, player ____ won!")

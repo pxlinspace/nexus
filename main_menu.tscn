@@ -1,0 +1,87 @@
+[gd_scene format=3 uid="uid://bx31rquyrgwj"]
+
+[ext_resource type="Script" uid="uid://coxw5u5c2dj08" path="res://script/main_menu.gd" id="1_7vrkn"]
+[ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="3_jix8l"]
+[ext_resource type="PackedScene" uid="uid://c2123vehrpvka" path="res://scenes/camera/camera.tscn" id="4_glbon"]
+[ext_resource type="Texture2D" uid="uid://m8x38acwjw7n" path="res://assets/images/title.png" id="5_glbon"]
+
+[sub_resource type="Gradient" id="Gradient_jix8l"]
+offsets = PackedFloat32Array(0.57417583, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_glbon"]
+resource_local_to_scene = true
+fractal_octaves = 4
+fractal_gain = 0.37
+fractal_weighted_strength = 0.24
+domain_warp_enabled = true
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_qe12f"]
+resource_local_to_scene = true
+width = 1024
+height = 1024
+noise = SubResource("FastNoiseLite_glbon")
+color_ramp = SubResource("Gradient_jix8l")
+seamless = true
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_8qtwp"]
+resource_local_to_scene = true
+sky_top_color = Color(1, 0, 0.8666667, 1)
+sky_horizon_color = Color(0.53333336, 0, 1, 1)
+sky_curve = 0.11367877
+sky_cover = SubResource("NoiseTexture2D_qe12f")
+ground_bottom_color = Color(0, 0.8666667, 0.8666667, 1)
+ground_horizon_color = Color(0.16530001, 0.57, 0.57, 1)
+sun_curve = 1.1196425
+
+[sub_resource type="Sky" id="Sky_dy7ct"]
+sky_material = SubResource("ProceduralSkyMaterial_8qtwp")
+
+[sub_resource type="Environment" id="Environment_0o4t1"]
+background_mode = 2
+sky = SubResource("Sky_dy7ct")
+ambient_light_source = 3
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1bvp3"]
+frequency = 1.0
+fractal_octaves = 2
+domain_warp_frequency = 7.04
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_nlkkf"]
+width = 1536
+height = 1538
+noise = SubResource("FastNoiseLite_1bvp3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_h2yge"]
+render_priority = 0
+shader = ExtResource("3_jix8l")
+shader_parameter/base_color = Color(8.374751e-06, 0.66744095, 0.6674412, 1)
+shader_parameter/noise = SubResource("NoiseTexture2D_nlkkf")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_qe12f"]
+material = SubResource("ShaderMaterial_h2yge")
+size = Vector2(1000, 1000)
+
+[node name="MainMenu" type="Node3D" unique_id=1278478256]
+script = ExtResource("1_7vrkn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1013023269]
+environment = SubResource("Environment_0o4t1")
+
+[node name="SkyTimer" type="Timer" parent="WorldEnvironment" unique_id=466487883]
+wait_time = 0.3
+autostart = true
+
+[node name="Turntable" type="Node3D" parent="." unique_id=134269164]
+
+[node name="Ground" type="MeshInstance3D" parent="Turntable" unique_id=754366986]
+mesh = SubResource("PlaneMesh_qe12f")
+
+[node name="Camera" parent="Turntable" unique_id=1481131549 instance=ExtResource("4_glbon")]
+transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.9781476, 0, 10, 0)
+script = null
+
+[node name="Title" type="Sprite3D" parent="Turntable" unique_id=276986359]
+transform = Transform3D(3.23, 0, 0, 0, 3.1902335, 0.50528336, 0, -0.50528336, 3.1902335, 0, 11.055289, -10.999)
+texture = ExtResource("5_glbon")
+
+[connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]

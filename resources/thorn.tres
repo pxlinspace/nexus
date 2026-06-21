@@ -9,8 +9,8 @@ region = Rect2(0, 0, 16, 18)
 
 [resource]
 script = ExtResource("1_4f3dn")
-name = "That's not... the... ThornRing, is it...? "
-desc = "lsklsdkjfdkljf"
+name = "Thorn Ring"
+desc = "That's not... the... ThornRing, is it...? "
 texture = SubResource("AtlasTexture_umud7")
-type = 5
+turn_lifespan = 3
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

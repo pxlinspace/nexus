@@ -1,28 +1,33 @@
 [gd_scene format=3 uid="uid://cwqit3hwax25j"]
 
-[ext_resource type="Texture2D" uid="uid://d2o505jq10agk" path="res://assets/images/grid.png" id="1_x0e5n"]
+[ext_resource type="Texture2D" uid="uid://d2o505jq10agk" path="res://assets/images/grids/grid_7x6.png" id="1_x0e5n"]
 [ext_resource type="Script" uid="uid://bjwwurk8v763o" path="res://scenes/grid/grid.gd" id="1_yuyu4"]
 [ext_resource type="PackedScene" uid="uid://cs71wkn3o1rt" path="res://scenes/ring/ring.tscn" id="2_tjrkl"]
-[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="3_4fqw0"]
-[ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="4_5rf0w"]
-[ext_resource type="Resource" uid="uid://1a7e5tkrgfes" path="res://resources/heavy.tres" id="4_ryvq8"]
+[ext_resource type="Texture2D" uid="uid://bxwq6x7u84yxx" path="res://assets/images/grids/grid_6x6.png" id="4_5rf0w"]
+[ext_resource type="Texture2D" uid="uid://b66h86vfah1wj" path="res://assets/images/grids/grid_6x5.png" id="5_0i434"]
+[ext_resource type="Texture2D" uid="uid://sr1f4sg6qgow" path="res://assets/images/grids/grid_5x5.png" id="6_scovc"]
+[ext_resource type="Texture2D" uid="uid://bfiww50p5ooo0" path="res://assets/images/grids/grid_5x4.png" id="7_tdvtp"]
+[ext_resource type="Texture2D" uid="uid://bwo7j8kiwmopt" path="res://assets/images/grids/grid_4x4.png" id="8_0i434"]
 
 [node name="Grid" type="Node3D" unique_id=225806234]
 script = ExtResource("1_yuyu4")
 ring_scene = ExtResource("2_tjrkl")
-all_ring_resources = Array[ExtResource("3_4fqw0")]([ExtResource("4_5rf0w"), ExtResource("4_ryvq8")])
+grid_textures = Array[Texture2D]([ExtResource("1_x0e5n"), ExtResource("4_5rf0w"), ExtResource("5_0i434"), ExtResource("6_scovc"), ExtResource("7_tdvtp"), ExtResource("8_0i434")])
 
 [node name="Front" type="Sprite3D" parent="." unique_id=634732860]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, 0)
+centered = false
+offset = Vector2(-6, -119)
 modulate = Color(1, 0.8666667, 0, 1)
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
-render_priority = 2
+render_priority = 40
 texture = ExtResource("1_x0e5n")
 
 [node name="Back" type="Sprite3D" parent="." unique_id=1271485084]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, -0.07)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.07)
+centered = false
+offset = Vector2(-6, -119)
 modulate = Color(0.8, 1, 0, 1)
 pixel_size = 0.012
 no_depth_test = true

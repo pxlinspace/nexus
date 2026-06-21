@@ -117,7 +117,7 @@ animations = [{
 
 [node name="Explosion" type="AnimatedSprite3D" unique_id=1941973155]
 transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
-render_priority = 20
+render_priority = 100
 sprite_frames = SubResource("SpriteFrames_j7odt")
 frame = 14
 frame_progress = 1.0

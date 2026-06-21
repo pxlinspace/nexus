@@ -2,15 +2,18 @@ class_name Ring extends Sprite3D
 
 @export var ring_resource: RingResource
 @export var explosion_scene: PackedScene
-@export var start_y = 0.5
+@export var start_y = 2.5
+
+@onready var base: Sprite3D = $Base
 
 var target_pos: Vector3
-var player: int
+var player = 0
 
 func _ready() -> void:
 	position = target_pos
-	position.y = start_y
+	global_position.y = start_y
 	texture = ring_resource.texture
+	base.texture.region.position.x = (player - 1) * 16
 
 func animate_to_pos():
 	var tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
@@ -41,8 +44,18 @@ func activate(grid: Grid, row: int, col: int):
 			await grid.destroy(row, col + 1)
 		RingResource.RingType.HEAVY:
 			for i in range(row + 1, grid.rows):
-				bump(Vector2(0, 1))
 				await grid.destroy(i, col)
+		RingResource.RingType.WEDDING:
+			if grid.get_pos(row, col + 1) == null:
+				return
+
+			var temp = grid.get_pos(row, col)
+			var one = grid.set_pos(grid.get_pos(row, col + 1), row, col)
+			var two = grid.set_pos(temp, row, col + 1)
+
+			var tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(one, "position:x", two.position.x, 0.5)
+			tween.tween_property(two, "position:x", one.position.x, 0.5)
 		_:
 			print("the ring activated doesn't have an ability")
 

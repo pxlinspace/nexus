@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://fn5p7hp6wl0n"]
+
+[ext_resource type="Script" uid="uid://bldrvd6ty80sm" path="res://scenes/curtains_effect/curtains_transition.gd" id="1_uys2p"]
+[ext_resource type="Texture2D" uid="uid://df615snyyukau" path="res://assets/images/curtains/curtains_left.png" id="2_t3e6x"]
+[ext_resource type="Texture2D" uid="uid://cwi4cbmqi0nga" path="res://assets/images/curtains/curtains_right.png" id="3_6lyvo"]
+
+[node name="CurtainsTransition" type="Node2D" unique_id=594224243]
+script = ExtResource("1_uys2p")
+
+[node name="LeftCurtain" type="Sprite2D" parent="." unique_id=1707804388]
+position = Vector2(320, 180)
+scale = Vector2(3, 3)
+texture = ExtResource("2_t3e6x")
+
+[node name="RightCurtain" type="Sprite2D" parent="." unique_id=699162175]
+position = Vector2(320, 180)
+scale = Vector2(3, 3)
+texture = ExtResource("3_6lyvo")

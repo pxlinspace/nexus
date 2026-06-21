@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://devp2cw6v1fru"]
+
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_n2qed"]
+
+[resource]
+script = ExtResource("1_n2qed")
+name = "Standard Ring"
+desc = "Just a plain old ring."
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"

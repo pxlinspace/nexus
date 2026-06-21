@@ -4,22 +4,24 @@
 [ext_resource type="Texture2D" uid="uid://bed21ft67yjjq" path="res://assets/images/finger_ring.png" id="2_560ov"]
 [ext_resource type="Texture2D" uid="uid://dhng2oaa24sv7" path="res://assets/images/yellow_diamond.tres" id="3_xytxm"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tor8r"]
-size = Vector2(39.75, 166)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_847ra"]
+radius = 20.0
+height = 82.0
 
 [node name="FingerRing" type="Area2D" unique_id=993510901]
 script = ExtResource("1_ohdcq")
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1606123814]
-position = Vector2(67, 249.00002)
+[node name="Ring" type="Node2D" parent="." unique_id=1632820474]
+
+[node name="Sprite2D" type="Sprite2D" parent="Ring" unique_id=1606123814]
+position = Vector2(0, 30)
 scale = Vector2(2.9999998, 2.9999998)
 texture = ExtResource("2_560ov")
 
-[node name="Gem" type="Sprite2D" parent="." unique_id=195115665]
-position = Vector2(67, 264)
+[node name="Gem" type="Sprite2D" parent="Ring" unique_id=195115665]
+position = Vector2(0, 45)
 scale = Vector2(2.9999998, 2.9999998)
 texture = ExtResource("3_xytxm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=816606232]
-position = Vector2(67, 217)
-shape = SubResource("RectangleShape2D_tor8r")
+shape = SubResource("CapsuleShape2D_847ra")
