@@ -1,6 +1,8 @@
 class_name FingerRing extends Area2D
 
 const RING_HOVER_OFFSET: Vector2 = Vector2(0.0, -10.0)
+@export var plain: Color
+@export var accent_color: Color
 
 @export var ring_resource: RingResource:
 	set = set_ring_resource
@@ -26,3 +28,9 @@ func deselect() -> void:
 	var tween := create_tween()
 	tween.tween_property(ring, "position", Vector2.ZERO, 0.3) \
 			.set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT)
+
+func make_brown():
+	$Ring/Sprite2D.self_modulate = accent_color
+
+func make_white():
+	$Ring/Sprite2D.self_modulate = plain
