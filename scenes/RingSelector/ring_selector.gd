@@ -17,8 +17,10 @@ var is_ring_used: bool = false
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
 @onready var expire_label: Label = $Description/ExpireLabel
+@onready var player_label: Label = $PlayerLabelContainer/PlayerLabel
 
 var player_data: PlayerData
+var player_number: int
 
 
 func _ready() -> void:
@@ -29,6 +31,7 @@ func _ready() -> void:
 
 	text_box.hide()
 	expire_label.hide()
+	player_label.text = "PLAYER " + str(player_number) + " - PICK A RING"
 	description_label.visible_ratio = 0
 	
 	for i in range(player_data.ring_resources.size()):
@@ -109,6 +112,7 @@ func _use_hovered_ring() -> void:
 
 
 func set_player(player: int) -> void:
+	player_number = player
 	if player == 1:
 		# change the color
 		$Hand.self_modulate = accent_color
