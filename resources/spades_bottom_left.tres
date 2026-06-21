@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://p6f18tv3ehkk"]
 
-[ext_resource type="Texture2D" uid="uid://dc6t0fw2bmelx" path="res://assets/images/desc_graphics/spades_bottom_left.png" id="1_dxqaa"]
+[ext_resource type="Texture2D" uid="uid://sy2giyjys2r0" path="res://assets/images/desc_graphics/rules.png" id="1_dxqaa"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_xunor"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_dxqaa"]
+[ext_resource type="Texture2D" uid="uid://hndeueb61fl" path="res://assets/images/black_spade.tres" id="3_dxqaa"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xe0qv"]
+atlas = ExtResource("1_dxqaa")
+region = Rect2(48, 0, 48, 48)
 
 [resource]
 script = ExtResource("1_xunor")
 name = "Ring of Spades"
 desc = "destroy the bottom left adjacent ring"
-desc_graphic = ExtResource("1_dxqaa")
-texture = ExtResource("2_dxqaa")
+desc_graphic = SubResource("AtlasTexture_xe0qv")
+texture = ExtResource("3_dxqaa")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
