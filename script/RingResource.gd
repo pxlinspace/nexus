@@ -13,5 +13,7 @@ enum RingType {
 
 @export var name: String
 @export var desc: String
+@export var desc_graphic: Texture2D
 @export var texture: Texture2D
+@export var finger_texture: Texture2D
 @export var type: RingType

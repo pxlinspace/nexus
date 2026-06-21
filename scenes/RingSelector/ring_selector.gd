@@ -11,6 +11,8 @@ var is_ring_used: bool = false
 @onready var mouse_area: Area2D = $MouseArea
 @onready var rings: Node2D = $Hand/Rings
 @onready var description_label: Label = $DescriptionLabel
+@onready var description_graphic: Sprite2D = $DescriptionGraphic
+@onready var text_box: ColorRect = $TextBox
 
 
 func _ready() -> void:
@@ -34,6 +36,11 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 	hovered_ring = area
 	area.select()
 	description_label.text = hovered_ring.ring_resource.desc
+	text_box.show()
+	if hovered_ring.ring_resource.desc_graphic:
+		description_graphic.texture = hovered_ring.ring_resource.desc_graphic
+	else:
+		description_graphic.texture = null
 
 
 func _on_mouse_area_area_exited(area: Area2D) -> void:
@@ -42,6 +49,8 @@ func _on_mouse_area_area_exited(area: Area2D) -> void:
 	area.deselect()
 	if hovered_ring == area:
 		description_label.text = ""
+		description_graphic.texture = null
+		text_box.hide()
 
 func _begin_hovered_ring_animation() -> void:
 	if not hovered_ring:
