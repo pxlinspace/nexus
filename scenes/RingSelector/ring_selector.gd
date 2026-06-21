@@ -16,7 +16,6 @@ var is_ring_used: bool = false
 
 
 func _ready() -> void:
-	hand.position = HAND_DOWN_POSITION
 	var tween = create_tween()
 	tween.tween_property(hand, "position", HAND_UP_POSITION, 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
@@ -24,7 +23,6 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
-
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select"):

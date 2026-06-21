@@ -1,6 +1,7 @@
 class_name RingResource extends Resource
 
 enum RingType {
+	NOTHING,
 	SPADES_BOTTOM_LEFT,
 	CLUBS_BOTTOM_RIGHT,
 	HEARTS_LEFT,

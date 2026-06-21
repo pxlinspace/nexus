@@ -8,7 +8,7 @@
 [ext_resource type="FontFile" uid="uid://dgg8ixo3u8r0o" path="res://assets/fonts/m3x6.ttf" id="5_d7rg1"]
 [ext_resource type="Resource" uid="uid://oxmym65tuyx0" path="res://resources/diamonds_right.tres" id="6_sosxc"]
 [ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="7_0hqad"]
-[ext_resource type="Resource" uid="uid://p6f18tv3ehkk" path="res://resources/spades_bottom_left.tres" id="8_413t8"]
+[ext_resource type="Resource" uid="uid://devp2cw6v1fru" path="res://resources/normal.tres" id="8_0hqad"]
 [ext_resource type="Resource" uid="uid://1a7e5tkrgfes" path="res://resources/heavy.tres" id="9_0hqad"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg3a2"]
@@ -72,7 +72,7 @@ position = Vector2(149.125, 273)
 shape = SubResource("RectangleShape2D_idl4l")
 
 [node name="4" parent="Hand/Rings" unique_id=1255652083 instance=ExtResource("2_ugkik")]
-ring_resource = ExtResource("8_413t8")
+ring_resource = ExtResource("8_0hqad")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/4" unique_id=233287827]
 z_index = 1

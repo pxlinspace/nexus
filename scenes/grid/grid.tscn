@@ -3,14 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://d2o505jq10agk" path="res://assets/images/grid.png" id="1_x0e5n"]
 [ext_resource type="Script" uid="uid://bjwwurk8v763o" path="res://scenes/grid/grid.gd" id="1_yuyu4"]
 [ext_resource type="PackedScene" uid="uid://cs71wkn3o1rt" path="res://scenes/ring/ring.tscn" id="2_tjrkl"]
-[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="3_4fqw0"]
-[ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="4_5rf0w"]
-[ext_resource type="Resource" uid="uid://1a7e5tkrgfes" path="res://resources/heavy.tres" id="4_ryvq8"]
 
 [node name="Grid" type="Node3D" unique_id=225806234]
 script = ExtResource("1_yuyu4")
 ring_scene = ExtResource("2_tjrkl")
-all_ring_resources = Array[ExtResource("3_4fqw0")]([ExtResource("4_5rf0w"), ExtResource("4_ryvq8")])
 
 [node name="Front" type="Sprite3D" parent="." unique_id=634732860]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.022542, 0)
@@ -27,4 +23,5 @@ modulate = Color(0.8, 1, 0, 1)
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
+render_priority = -10
 texture = ExtResource("1_x0e5n")
