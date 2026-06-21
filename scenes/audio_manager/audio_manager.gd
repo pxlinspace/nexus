@@ -2,6 +2,7 @@ extends AudioStreamPlayer
 
 @export var hit: AudioStream
 @export var buzzer: AudioStream
+@export var explosion: AudioStream
 
 func play_sound(sound: AudioStream, randomness: float = 0):
 	var player = AudioStreamPlayer.new()
