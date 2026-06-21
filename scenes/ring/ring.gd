@@ -75,8 +75,9 @@ func bump(dir: Vector2):
 	tween.tween_property(self, "position", original_pos, 0.2)
 	AudioManager.play_sound(AudioManager.bump)
 
-func destroy():
-	AudioManager.play_sound(AudioManager.explosion, 0, -6)
+func destroy(mute: bool = false):
+	if not mute:
+		AudioManager.play_sound(AudioManager.explosion, 0, -6)
 	var explosion = explosion_scene.instantiate() as AnimatedSprite3D
 	visible = false
 	get_parent().add_child(explosion)

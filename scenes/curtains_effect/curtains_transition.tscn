@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://bldrvd6ty80sm" path="res://scenes/curtains_effect/curtains_transition.gd" id="1_uys2p"]
 [ext_resource type="Texture2D" uid="uid://df615snyyukau" path="res://assets/images/curtains/curtains_left.png" id="2_t3e6x"]
 [ext_resource type="Texture2D" uid="uid://cwi4cbmqi0nga" path="res://assets/images/curtains/curtains_right.png" id="3_6lyvo"]
+[ext_resource type="AudioStream" uid="uid://cx8p4eqgml2bj" path="res://assets/sfx/curtains_in.wav" id="4_6lyvo"]
+[ext_resource type="AudioStream" uid="uid://crkurvu2upepq" path="res://assets/sfx/curtains_out.wav" id="5_2twfl"]
 
 [node name="CurtainsTransition" type="Node2D" unique_id=594224243]
 script = ExtResource("1_uys2p")
@@ -16,3 +18,11 @@ texture = ExtResource("2_t3e6x")
 position = Vector2(320, 180)
 scale = Vector2(3, 3)
 texture = ExtResource("3_6lyvo")
+
+[node name="CurtainsInAudio" type="AudioStreamPlayer" parent="." unique_id=850274118]
+stream = ExtResource("4_6lyvo")
+volume_db = 3.0
+
+[node name="CurtainsOutAudio" type="AudioStreamPlayer" parent="." unique_id=913538641]
+stream = ExtResource("5_2twfl")
+volume_db = 3.0

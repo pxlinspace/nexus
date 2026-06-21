@@ -37,7 +37,7 @@ func _ready() -> void:
 	next_round()
 
 func next_round():
-
+	
 	curtains_transition.transition_out()
 	# await Global.wait(1.0)
 	grid.destroy_all()

@@ -79,14 +79,14 @@ func get_pos(row: int, col: int):
 	return grid[r][c]
 
 # destroys a ring in the grid at the specified position
-func destroy(row: int, col: int):
+func destroy(row: int, col: int, mute_audio: bool = false):
 	var r = wrapi(row, 0, rows)
 	var c = wrapi(col, 0, cols)
 
 	var target = grid[r][c]
 	if target:
 		Global.camera.shake(0.1, 0.02)
-		await target.destroy()
+		await target.destroy(mute_audio)
 		grid[r][c] = null
 
 	for i in range(r - 1, -1, -1):
@@ -129,7 +129,7 @@ func destroy_all():
 	for row in range(rows):
 		for col in range(cols):
 			if grid[row][col] != null:
-				destroy(row, col)
+				destroy(row, col, true)
 
 func change_size(idx: int):
 	print("index: " + str(idx))
