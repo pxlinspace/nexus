@@ -1,18 +1,14 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://bjiu3vma1801q"]
 
-[ext_resource type="Texture2D" uid="uid://sy2giyjys2r0" path="res://assets/images/desc_graphics/rules.png" id="1_a2vcl"]
+[ext_resource type="Texture2D" uid="uid://hvlvr1bu06g6" path="res://assets/images/heartsgraphic.tres" id="1_a2vcl"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_y81g1"]
-[ext_resource type="Texture2D" uid="uid://bckxn06iw378h" path="res://assets/images/red_heart.tres" id="3_a2vcl"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_b7g8s"]
-atlas = ExtResource("1_a2vcl")
-region = Rect2(0, 48, 48, 48)
+[ext_resource type="Texture2D" uid="uid://demgfetl2b6dm" path="res://assets/images/red_heart.tres" id="3_dayg1"]
 
 [resource]
 script = ExtResource("1_y81g1")
 name = "ring of hearts"
 desc = "destroy the left adjacent ring"
-desc_graphic = SubResource("AtlasTexture_b7g8s")
-texture = ExtResource("3_a2vcl")
+desc_graphic = ExtResource("1_a2vcl")
+texture = ExtResource("3_dayg1")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

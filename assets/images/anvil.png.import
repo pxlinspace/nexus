@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cpd1lpusxj1lb"
-path.s3tc="res://.godot/imported/rules.png-d7aa1d880e9822b085402c1f68b25663.s3tc.ctex"
+uid="uid://b1rlxjbkunspq"
+path.s3tc="res://.godot/imported/anvil.png-7ee1ad63a965e4d1044ab87bd0b92d6f.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://assets/images/desc_graphics/rules.png"
-dest_files=["res://.godot/imported/rules.png-d7aa1d880e9822b085402c1f68b25663.s3tc.ctex"]
+source_file="res://assets/images/anvil.png"
+dest_files=["res://.godot/imported/anvil.png-7ee1ad63a965e4d1044ab87bd0b92d6f.s3tc.ctex"]
 
 [params]
 

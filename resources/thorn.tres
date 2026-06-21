@@ -1,12 +1,16 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://c5lumvxitcybu"]
 
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_4f3dn"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_ab4k5"]
+[ext_resource type="Texture2D" uid="uid://vvkp7a5bns4j" path="res://assets/images/ring_gems2.png" id="2_4f3dn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_umud7"]
+atlas = ExtResource("2_4f3dn")
+region = Rect2(0, 0, 16, 18)
 
 [resource]
 script = ExtResource("1_4f3dn")
 name = "That's not... the... ThornRing, is it...? "
 desc = "lsklsdkjfdkljf"
-texture = ExtResource("2_ab4k5")
+texture = SubResource("AtlasTexture_umud7")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

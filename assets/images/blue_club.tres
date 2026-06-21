@@ -1,7 +1,7 @@
-[gd_resource type="AtlasTexture" format=3 uid="uid://c4xub8rb7rdy2"]
+[gd_resource type="AtlasTexture" format=3 uid="uid://b5ea5b84ekiy8"]
 
-[ext_resource type="Texture2D" uid="uid://dxji2yl6ehrgh" path="res://assets/images/ring_gems.png" id="1_4gv70"]
+[ext_resource type="Texture2D" uid="uid://dxji2yl6ehrgh" path="res://assets/images/ring_gems.png" id="1_iwhgw"]
 
 [resource]
-atlas = ExtResource("1_4gv70")
+atlas = ExtResource("1_iwhgw")
 region = Rect2(0, 0, 16, 18)

@@ -55,19 +55,12 @@ func _on_mouse_area_area_exited(area: Area2D) -> void:
 func _begin_hovered_ring_animation() -> void:
 	if not hovered_ring:
 		return
-
-	text_box.visible = false
-	description_label.visible = false
-	description_graphic.visible = false
-
 	is_ring_used = true
 	hovered_ring.reparent(self)
 	var ring_tween = create_tween()
 	ring_tween.tween_property(hovered_ring, "position", hovered_ring.position + Vector2(0, -270.0), 0.4) \
 			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART)
-
-	await Global.wait(0.6)
-
+	
 	var hand_tween = create_tween()
 	hand_tween.tween_property(hand, "position", HAND_DOWN_POSITION, 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
