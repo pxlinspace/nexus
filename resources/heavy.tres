@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://1a7e5tkrgfes"]
 
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_3617l"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_umud7"]
+[ext_resource type="Texture2D" uid="uid://px62o3gf710u" path="res://resources/brown_ring.tres" id="2_umud7"]
 
 [resource]
 script = ExtResource("1_3617l")
