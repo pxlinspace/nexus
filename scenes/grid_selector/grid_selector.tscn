@@ -34,7 +34,7 @@ texture = ExtResource("3_yhvd6")
 
 [node name="OpenHand" type="Sprite2D" parent="Hand" unique_id=166251860]
 visible = false
-position = Vector2(342.00006, -218.00015)
+position = Vector2(346.00003, -28.000065)
 scale = Vector2(5, 5)
 texture = ExtResource("4_mh8ql")
 
