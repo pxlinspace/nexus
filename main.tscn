@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://6qqxtmsb63xe" path="res://script/main.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://c2123vehrpvka" path="res://scenes/camera/camera.tscn" id="2_0xm2m"]
 [ext_resource type="Material" uid="uid://b8sytirvxv74x" path="res://procedural_sky.tres" id="2_7mycd"]
+[ext_resource type="PackedScene" uid="uid://dx4uibp8skkg2" path="res://scenes/grid_selector/grid_selector.tscn" id="3_5vw27"]
 [ext_resource type="PackedScene" uid="uid://cwqit3hwax25j" path="res://scenes/grid/grid.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
@@ -40,6 +41,7 @@ size = Vector2(1000, 1000)
 script = ExtResource("1_lquwl")
 sky_scroll_amount = 10.0
 ring_selector_scene = ExtResource("7_272bh")
+grid_selector_scene = ExtResource("3_5vw27")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=338819543]
 environment = SubResource("Environment_7dm0k")
