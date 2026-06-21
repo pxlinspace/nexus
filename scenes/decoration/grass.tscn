@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://d015uoreec1m2"]
+
+[ext_resource type="PackedScene" uid="uid://dwbhq0gvqkv4s" path="res://assets/models/grass.fbx" id="1_vs1ip"]
+
+[node name="Node3D" type="Node3D" unique_id=555579646]
+
+[node name="grass" parent="." unique_id=7550595 instance=ExtResource("1_vs1ip")]
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, -0.011998057, -1.1759181, 0.8608203)
