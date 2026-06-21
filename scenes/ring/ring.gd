@@ -47,9 +47,16 @@ func activate(grid: Grid, row: int, col: int):
 				bump(Vector2(0, 1))
 				await grid.destroy(i, col)
 		RingResource.RingType.WEDDING:
+			if grid.get_pos(row, col + 1) == null:
+				return
+
 			var temp = grid.get_pos(row, col)
-			grid.set_pos(grid.get_pos(row, col + 1), row, col)
-			grid.set_pos(temp, row, col + 1)
+			var one = grid.set_pos(grid.get_pos(row, col + 1), row, col)
+			var two = grid.set_pos(temp, row, col + 1)
+
+			var tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
+			tween.tween_property(one, "position:x", two.position.x, 0.5)
+			tween.tween_property(two, "position:x", one.position.x, 0.5)
 		_:
 			print("the ring activated doesn't have an ability")
 

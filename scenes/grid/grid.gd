@@ -67,6 +67,7 @@ func set_pos(val: Ring, row: int, col: int):
 	var r = wrapi(row, 0, rows)
 	var c = wrapi(col, 0, cols)
 	grid[r][c] = val
+	return grid[r][c]
 
 func get_pos(row: int, col: int):
 	var r = wrapi(row, 0, rows)
