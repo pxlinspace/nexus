@@ -81,7 +81,17 @@ transform = Transform3D(1, 0, 0, 0, 0.9781476, -0.2079117, 0, 0.2079117, 0.97814
 script = null
 
 [node name="Title" type="Sprite3D" parent="Turntable" unique_id=276986359]
-transform = Transform3D(3.23, 0, 0, 0, 3.1902335, 0.50528336, 0, -0.50528336, 3.1902335, 0, 11.055289, -10.999)
+transform = Transform3D(3.23, 0, 0, 0, 3.1902335, 0.50528336, 0, -0.50528336, 3.1902335, 0, 10.855, -8.839)
+texture_filter = 0
 texture = ExtResource("5_glbon")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=855862677]
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1426718561]
+offset_left = 294.0
+offset_top = 42.0
+offset_right = 341.0
+offset_bottom = 73.0
+text = "PLAY"
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]

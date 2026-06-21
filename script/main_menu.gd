@@ -6,3 +6,4 @@ class_name MainMenu extends Node3D
 
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
+
