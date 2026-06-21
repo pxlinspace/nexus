@@ -12,7 +12,7 @@ shader_parameter/fps = 6.0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_s6ffy"]
 shader = ExtResource("3_weddr")
-shader_parameter/radius = 0.47200002242
+shader_parameter/radius = 0.602000028595
 shader_parameter/softness = 0.8190000389025
 shader_parameter/intensity = 0.6590000313025
 shader_parameter/contrast = 2.2
