@@ -9,6 +9,8 @@ const TWEEN_DURATION: float = 0.75
 
 @onready var left_curtain: Sprite2D = $LeftCurtain
 @onready var right_curtain: Sprite2D = $RightCurtain
+@onready var curtains_in_audio: AudioStreamPlayer = $CurtainsInAudio
+@onready var curtains_out_audio: AudioStreamPlayer = $CurtainsOutAudio
 
 
 func _ready() -> void:
@@ -17,6 +19,7 @@ func _ready() -> void:
 
 
 func transition_in() -> void:
+	curtains_in_audio.play()
 	var left_tween = create_tween()
 	left_tween.tween_property(left_curtain, "position:x", CENTER_X, TWEEN_DURATION) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
@@ -27,6 +30,7 @@ func transition_in() -> void:
 
 
 func transition_out() -> void:
+	curtains_out_audio.play()
 	var left_tween = create_tween()
 	left_tween.tween_property(left_curtain, "position:x", CENTER_X-OFFSET_X, TWEEN_DURATION) \
 			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUAD)

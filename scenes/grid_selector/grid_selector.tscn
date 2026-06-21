@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d4ix2om8nmq6c" path="res://scenes/grid_selector/grid_col_area.tscn" id="2_qjqkb"]
 [ext_resource type="Texture2D" uid="uid://d0sir7as42bhr" path="res://assets/images/hand_pinched.png" id="3_yhvd6"]
 [ext_resource type="Texture2D" uid="uid://clw07wt81wwxi" path="res://assets/images/hand_open.png" id="4_mh8ql"]
+[ext_resource type="AudioStream" uid="uid://ds5qod5b7r0ff" path="res://assets/sfx/drop_ring.wav" id="5_fhlwi"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjqkb"]
 radius = 2.0
@@ -37,6 +38,9 @@ visible = false
 position = Vector2(346.00003, -28.000065)
 scale = Vector2(5, 5)
 texture = ExtResource("4_mh8ql")
+
+[node name="DropRingAudio" type="AudioStreamPlayer" parent="." unique_id=976129794]
+stream = ExtResource("5_fhlwi")
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]
 [connection signal="area_exited" from="MouseArea" to="." method="_on_mouse_area_area_exited"]

@@ -18,6 +18,7 @@ var is_ring_used: bool = false
 @onready var text_box: ColorRect = $Description/TextBox
 @onready var expire_label: Label = $Description/ExpireLabel
 @onready var player_label: Label = $PlayerLabelContainer/PlayerLabel
+@onready var select_ring_audio: AudioStreamPlayer = $SelectRingAudio
 
 var player_data: PlayerData
 var player_number: int
@@ -85,7 +86,8 @@ func _on_mouse_area_area_exited(area: Area2D) -> void:
 func _begin_hovered_ring_animation() -> void:
 	if not hovered_ring:
 		return
-
+	
+	select_ring_audio.play()
 	text_box.visible = false
 	expire_label.hide()
 	description_graphic.visible = false
@@ -124,4 +126,5 @@ func set_player(player: int) -> void:
 	else:
 		# flip the x
 		for node in get_children():
-			node.position.x = 640.0 - node.position.x
+			if node is Node2D:
+				node.position.x = 640.0 - node.position.x

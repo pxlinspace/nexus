@@ -36,6 +36,7 @@ func _enter_tree() -> void:
 	grid = $Turntable/Grid
 
 func _ready() -> void:
+	AudioManager.play_sound(AudioManager.music, 0, 4)
 	original_round_text_pos = round_text.position
 	next_round()
 
@@ -55,7 +56,7 @@ func next_round():
 	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.tween_property(round_text, "position", Vector3(0, 1.117, 0.625), 0.75)
 	tween.tween_property(round_text, "rotation_degrees:x", -90, 0.75)
-	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion))
+	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion, 0, -6))
 
 	curr_player = 1 if round % 2 == 0 else 2
 
@@ -82,7 +83,7 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 
 	# move scoreboard up
 	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(scoreboard, "position:y", 3.2, 0.5)
+	tween.tween_property(scoreboard, "position:y", 6, 0.5)
 
 func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
@@ -109,7 +110,7 @@ func _on_grid_ring_dropped() -> void:
 		tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
 		tween.tween_property(rounds_win_text, "position:y", -360, 0.5).set_ease(Tween.EASE_IN).set_delay(1.75)
 
-		await Global.wait(3.0)
+		await Global.wait(4.0)
 
 		if round >= len(grid.grid_textures) - 1:
 			end_game()
@@ -137,4 +138,8 @@ func update_player_score(player: int, delta: int):
 		scoreboard.get_node("Player2Score").text = str(player_2_score)
 
 func end_game():
-	print("that's the game, player ____ won!")
+	rounds_win_text.text = "[wave]Player %s wins the game!!![/wave]" % ("1" if player_1_score > player_2_score else "2")
+	var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
+	await Global.wait(5.0)
+	get_tree().reload_current_scene()
