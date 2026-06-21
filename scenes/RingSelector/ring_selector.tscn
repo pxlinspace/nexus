@@ -104,14 +104,17 @@ shape = SubResource("RectangleShape2D_lg3a2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea" unique_id=1010632132]
 shape = SubResource("CircleShape2D_lg3a2")
 
-[node name="TextBox" type="ColorRect" parent="." unique_id=31126398]
+[node name="Description" type="Node2D" parent="." unique_id=910368134]
+position = Vector2(441, 0)
+
+[node name="TextBox" type="ColorRect" parent="Description" unique_id=31126398]
 visible = false
-offset_left = 261.0
+offset_left = -180.0
 offset_top = 187.0
-offset_right = 629.0
+offset_right = 188.0
 offset_bottom = 350.0
 
-[node name="InnerBox" type="ColorRect" parent="TextBox" unique_id=77172787]
+[node name="InnerBox" type="ColorRect" parent="Description/TextBox" unique_id=77172787]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
@@ -119,18 +122,18 @@ offset_right = 365.0
 offset_bottom = 160.0
 color = Color(0.53333336, 0, 1, 1)
 
-[node name="DescriptionLabel" type="Label" parent="." unique_id=106688613]
+[node name="DescriptionLabel" type="Label" parent="Description" unique_id=106688613]
 custom_minimum_size = Vector2(199, 0)
-offset_left = 277.0
+offset_left = -164.0
 offset_top = 203.0
-offset_right = 476.0
+offset_right = 35.0
 offset_bottom = 334.0
 theme_override_fonts/font = ExtResource("5_d7rg1")
 theme_override_font_sizes/font_size = 48
 autowrap_mode = 3
 
-[node name="DescriptionGraphic" type="Sprite2D" parent="." unique_id=65399140]
-position = Vector2(543, 266)
+[node name="DescriptionGraphic" type="Sprite2D" parent="Description" unique_id=65399140]
+position = Vector2(102, 266)
 scale = Vector2(3, 3)
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]

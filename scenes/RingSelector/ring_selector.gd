@@ -2,22 +2,23 @@ extends Node2D
 
 signal ring_selected(ring_resource: RingResource)
 
-const HAND_UP_POSITION: Vector2 = Vector2(147.0, 384.0)
-const HAND_DOWN_POSITION: Vector2 = Vector2(147.0, 720.0)
+const HAND_UP_POSITION_Y: float = 384.0
+const HAND_DOWN_POSITION_Y: float = 720.0
 
 var hovered_ring: FingerRing
 var is_ring_used: bool = false
 @onready var hand: Sprite2D = $Hand
 @onready var mouse_area: Area2D = $MouseArea
 @onready var rings: Node2D = $Hand/Rings
-@onready var description_label: Label = $DescriptionLabel
-@onready var description_graphic: Sprite2D = $DescriptionGraphic
-@onready var text_box: ColorRect = $TextBox
+@onready var description_label: Label = $Description/DescriptionLabel
+@onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
+@onready var text_box: ColorRect = $Description/TextBox
 
 
 func _ready() -> void:
+	hand.position.y = HAND_DOWN_POSITION_Y
 	var tween = create_tween()
-	tween.tween_property(hand, "position", HAND_UP_POSITION, 0.75) \
+	tween.tween_property(hand, "position", Vector2(hand.position.x, HAND_UP_POSITION_Y), 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 
 
@@ -67,7 +68,7 @@ func _begin_hovered_ring_animation() -> void:
 	await Global.wait(0.5)
 
 	var hand_tween = create_tween()
-	hand_tween.tween_property(hand, "position", HAND_DOWN_POSITION, 0.75) \
+	hand_tween.tween_property(hand, "position", Vector2(hand.position.x, HAND_DOWN_POSITION_Y), 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 	hand_tween.tween_callback(_use_hovered_ring)
 
@@ -75,3 +76,10 @@ func _begin_hovered_ring_animation() -> void:
 func _use_hovered_ring() -> void:
 	ring_selected.emit(hovered_ring.ring_resource)
 	queue_free()
+
+
+func set_player(player: int) -> void:
+	if player == 1:
+		return
+	for node in get_children():
+		node.position.x = 640.0 - node.position.x
