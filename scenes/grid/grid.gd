@@ -109,3 +109,9 @@ func check_win():
 					cy += dir.y
 
 	return 0
+
+func destroy_all():
+	for row in range(rows):
+		for col in range(cols):
+			if grid[row][col] != null:
+				destroy(row, col)
