@@ -60,7 +60,7 @@ func _begin_hovered_ring_animation() -> void:
 	var ring_tween = create_tween()
 	ring_tween.tween_property(hovered_ring, "position", hovered_ring.position + Vector2(0, -270.0), 0.4) \
 			.set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_QUART)
-	
+
 	var hand_tween = create_tween()
 	hand_tween.tween_property(hand, "position", HAND_DOWN_POSITION, 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)

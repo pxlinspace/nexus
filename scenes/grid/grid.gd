@@ -21,11 +21,11 @@ func _ready() -> void:
 
 	init_grid()
 
-func _process(dt: float) -> void:
-	if Input.is_action_just_pressed("s"):
-		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[0])
-	if Input.is_action_just_pressed("space"):
-		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[1])
+# func _process(dt: float) -> void:
+# 	if Input.is_action_just_pressed("s"):
+# 		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[0])
+# 	if Input.is_action_just_pressed("space"):
+# 		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[1])
 
 # fill the grid with nothing
 func init_grid():
