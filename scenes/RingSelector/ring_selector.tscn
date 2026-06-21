@@ -21,6 +21,7 @@ size = Vector2(41.75, 406)
 radius = 5.0
 
 [node name="RingSelector" type="Node2D" unique_id=620474103]
+position = Vector2(0, -51)
 script = ExtResource("1_idl4l")
 
 [node name="Hand" type="Sprite2D" parent="." unique_id=1215256875]

@@ -10,5 +10,5 @@ name = "Ring of Clubs"
 desc = "destroy the bottom right adjacent ring"
 desc_graphic = ExtResource("1_s30fg")
 texture = ExtResource("3_t3ees")
-type = 1
+type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

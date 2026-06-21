@@ -10,5 +10,5 @@ name = "ring of hearts"
 desc = "destroy the left adjacent ring"
 desc_graphic = ExtResource("1_a2vcl")
 texture = ExtResource("3_dayg1")
-type = 2
+type = 3
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
