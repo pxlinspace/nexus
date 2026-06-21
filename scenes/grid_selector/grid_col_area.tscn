@@ -16,7 +16,7 @@ shape = SubResource("RectangleShape2D_tibqw")
 
 [node name="Arrow" type="Sprite2D" parent="." unique_id=185966471]
 visible = false
-position = Vector2(0, -100.00004)
+position = Vector2(0, -104)
 scale = Vector2(5, 5)
 texture = ExtResource("2_omuqj")
 
