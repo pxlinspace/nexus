@@ -22,13 +22,16 @@ const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
 	],
 }
 
-@export var ring_resources = [null, null, null, null, null]
-var ring_ages: Array[int] = [0, 0, 0, 0, 0]
+const RING_COUNT: int = 5
+
+@export var ring_resources = []
+var ring_ages: Array[int] = []
 
 
 func _ready() -> void:
-	for i in ring_resources.size():
-		ring_resources[i] = _get_random_ring_resource()
+	for i in RING_COUNT:
+		ring_resources.append(_get_random_ring_resource())
+		ring_ages.append(0)
 
 
 func replace_ring(index) -> void:

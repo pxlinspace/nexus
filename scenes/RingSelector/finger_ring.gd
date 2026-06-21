@@ -2,15 +2,17 @@ class_name FingerRing extends Area2D
 
 const RING_HOVER_OFFSET: Vector2 = Vector2(0.0, -10.0)
 
-@export var ring_resource: RingResource
+@export var ring_resource: RingResource:
+	set = set_ring_resource
 var is_hovered: bool = false
 @onready var ring: Node2D = $Ring
 @onready var gem: Sprite2D = $Ring/Gem
 
 
-func _ready():
-	gem.texture = ring_resource.texture
-
+func set_ring_resource(value: RingResource) -> void:
+	ring_resource = value
+	if is_instance_valid(gem):
+		gem.texture = ring_resource.texture
 
 func select() -> void:
 	is_hovered = true
