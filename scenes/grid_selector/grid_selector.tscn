@@ -6,9 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://clw07wt81wwxi" path="res://assets/images/hand_open.png" id="4_mh8ql"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qjqkb"]
-radius = 5.0
+radius = 2.0
 
 [node name="GridSelector" type="Node2D" unique_id=1135313067]
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_y7m13")
 accent_color = Color(0.7294118, 0.33333334, 0.14117648, 1)
 grid_col_area_scene = ExtResource("2_qjqkb")
@@ -21,18 +22,20 @@ metadata/_edit_horizontal_guides_ = [180.0, 360.0]
 shape = SubResource("CircleShape2D_qjqkb")
 
 [node name="GridColumns" type="Node2D" parent="." unique_id=1413141221]
+position = Vector2(386, 194)
+scale = Vector2(0.8, 0.8)
 
 [node name="Hand" type="Node2D" parent="." unique_id=1341209369]
 
 [node name="PinchHand" type="Sprite2D" parent="Hand" unique_id=1522556356]
-position = Vector2(0, -20)
-scale = Vector2(2, 2)
+position = Vector2(340.00003, -250)
+scale = Vector2(5, 5)
 texture = ExtResource("3_yhvd6")
 
 [node name="OpenHand" type="Sprite2D" parent="Hand" unique_id=166251860]
 visible = false
-position = Vector2(0, -20)
-scale = Vector2(2, 2)
+position = Vector2(342.00006, -218.00015)
+scale = Vector2(5, 5)
 texture = ExtResource("4_mh8ql")
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]

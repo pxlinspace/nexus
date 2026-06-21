@@ -63,8 +63,8 @@ mesh = SubResource("PlaneMesh_1bvp3")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.771212, 2.5266418, 0)
 
 [node name="Camera" parent="Turntable" unique_id=1481131549 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(0.5030199, 0.07532651, -0.860986, 0, 0.9961947, 0.08715574, 0.8642748, -0.043841075, 0.5011058, 0, 2.1927938, 5)
-fov = 100.0
+transform = Transform3D(0.5030199, 0.07532651, -0.860986, 0, 0.9961947, 0.08715574, 0.8642748, -0.04384107, 0.5011058, 0, 2.1927938, 5)
+fov = 130.0
 player_animation_speed = 8.0
 player_x_offset = 0.5
 player_y_rot = 12.0
