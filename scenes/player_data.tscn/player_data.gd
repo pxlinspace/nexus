@@ -9,12 +9,14 @@ enum RING_RARITY {
 const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
 	RING_RARITY.COMMON: [
 		"res://resources/normal.tres",
+		# "res://resources/double.tres",
 	],
 	RING_RARITY.UNCOMMON: [
 		"res://resources/clubs_bottom_right.tres",
 		"res://resources/diamonds_right.tres",
 		"res://resources/hearts_left.tres",
 		"res://resources/spades_bottom_left.tres",
+		"res://resources/copy.tres"
 	],
 	RING_RARITY.RARE: [
 		"res://resources/heavy.tres",

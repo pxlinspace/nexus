@@ -9,7 +9,9 @@ enum RingType {
 	HEAVY,
 	THORN,
 	ONE_RING,
-	WEDDING
+	WEDDING,
+	DOUBLE,
+	COPY
 }
 
 @export var name: String

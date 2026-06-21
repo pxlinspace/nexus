@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://y2bs4w603xhg"]
+
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_fox8r"]
+
+[resource]
+script = ExtResource("1_fox8r")
+name = "Copy"
+desc = "copycat"
+type = 10
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"
