@@ -32,24 +32,29 @@ func _input(event: InputEvent) -> void:
 func _on_mouse_area_area_entered(area: Area2D) -> void:
 	if is_ring_used:
 		return
-	hovered_ring = area
-	area.select()
-	description_label.text = hovered_ring.ring_resource.desc
-	text_box.show()
-	if hovered_ring.ring_resource.desc_graphic:
-		description_graphic.texture = hovered_ring.ring_resource.desc_graphic
-	else:
-		description_graphic.texture = null
+	if area is FingerRing:
+		hovered_ring = area
+		area.select()
+		description_label.text = hovered_ring.ring_resource.desc
+		text_box.show()
+		if hovered_ring.ring_resource.desc_graphic:
+			description_graphic.texture = hovered_ring.ring_resource.desc_graphic
+		else:
+			description_graphic.texture = null
+		
+		for ring in rings.get_children():
+			if ring == hovered_ring:
+				continue
+			ring.deselect()
 
 
 func _on_mouse_area_area_exited(area: Area2D) -> void:
-	if is_ring_used:
+	if is_ring_used or area != hovered_ring:
 		return
 	area.deselect()
-	if hovered_ring == area:
-		description_label.text = ""
-		description_graphic.texture = null
-		text_box.hide()
+	description_label.text = ""
+	description_graphic.texture = null
+	text_box.hide()
 
 func _begin_hovered_ring_animation() -> void:
 	if not hovered_ring:
