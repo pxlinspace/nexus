@@ -16,16 +16,10 @@ var width: float
 var height: float
 
 func _ready() -> void:
-	width = front.pixel_size * grid_image_width
-	height = front.pixel_size * grid_image_height
+	width = $Front.pixel_size * grid_image_width
+	height = $Front.pixel_size * grid_image_height
 
 	init_grid()
-
-# func _process(dt: float) -> void:
-# 	if Input.is_action_just_pressed("s"):
-# 		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[0])
-# 	if Input.is_action_just_pressed("space"):
-# 		drop_ring(1, randi_range(0, cols - 1), all_ring_resources[1])
 
 # fill the grid with nothing
 func init_grid():
@@ -53,8 +47,8 @@ func drop_ring(player: int, col: int, resource: RingResource):
 	Canvas.flash()
 	var ring = ring_scene.instantiate() as Ring
 	ring.ring_resource = resource
-	grid[row][col] = ring
 	ring.player = player
+	grid[row][col] = ring
 	ring.target_pos = Vector3(
 		col * 18 * front.pixel_size + (10 * front.pixel_size),
 		-(row * 18 * front.pixel_size + (10 * front.pixel_size)),
@@ -99,7 +93,7 @@ func check_win():
 	for r in range(rows):
 		for c in range(cols):
 			var ring = grid[r][c]
-			if ring.player == 0:
+			if ring == null:
 				continue
 
 			for dir in directions:
@@ -107,7 +101,7 @@ func check_win():
 				var cx = c + dir.x
 				var cy = r + dir.y
 
-				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx].player == ring.player:
+				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx] != null and ring != null and grid[cy][cx].player == ring.player:
 					count += 1
 					if count >= 4:
 						return ring.player
@@ -115,3 +109,9 @@ func check_win():
 					cy += dir.y
 
 	return 0
+
+func destroy_all():
+	for row in range(rows):
+		for col in range(cols):
+			if grid[row][col] != null:
+				destroy(row, col)
