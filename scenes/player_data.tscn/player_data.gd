@@ -9,12 +9,14 @@ enum RING_RARITY {
 const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
 	RING_RARITY.COMMON: [
 		"res://resources/normal.tres",
+		# "res://resources/double.tres",
 	],
 	RING_RARITY.UNCOMMON: [
 		"res://resources/clubs_bottom_right.tres",
 		"res://resources/diamonds_right.tres",
 		"res://resources/hearts_left.tres",
 		"res://resources/spades_bottom_left.tres",
+		"res://resources/copy.tres"
 	],
 	RING_RARITY.RARE: [
 		"res://resources/heavy.tres",
@@ -41,7 +43,7 @@ func replace_ring(index) -> void:
 
 
 func increment_ring_ages() -> void:
-	for i in ring_ages:
+	for i in RING_COUNT:
 		ring_ages[i] += 1
 		if ring_ages[i] >= ring_resources[i].turn_lifespan:
 			ring_ages[i] = 0

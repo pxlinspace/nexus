@@ -15,5 +15,5 @@ desc = "Destroy all rings in the column."
 desc_graphic = ExtResource("1_umud7")
 texture = SubResource("AtlasTexture_ab4k5")
 type = 5
-turn_lifespan = 3
+turn_lifespan = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

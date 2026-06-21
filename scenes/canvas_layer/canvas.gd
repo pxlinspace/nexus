@@ -7,5 +7,5 @@ func _ready() -> void:
 
 func flash():
 	var tween = create_tween()
-	flashbang.color.a = 0.8
+	flashbang.color.a = 0.7
 	tween.tween_property(flashbang, "color:a", 0, 0.2)

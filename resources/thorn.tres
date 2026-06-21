@@ -12,5 +12,5 @@ script = ExtResource("1_4f3dn")
 name = "Thorn Ring"
 desc = "That's not... the... ThornRing, is it...? "
 texture = SubResource("AtlasTexture_umud7")
-turn_lifespan = 3
+turn_lifespan = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

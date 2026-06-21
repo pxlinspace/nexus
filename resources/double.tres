@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://wy4yhy4wmab4"]
+
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_xefxi"]
+
+[resource]
+script = ExtResource("1_xefxi")
+name = "Double"
+desc = "double double double double"
+type = 9
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"

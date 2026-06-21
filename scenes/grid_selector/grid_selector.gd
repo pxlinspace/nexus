@@ -14,6 +14,7 @@ signal col_selected(col: int)
 var hovered_col_index: int = -1
 var target_hand_x = 0.0
 var player = 1
+var is_used = false
 
 func _ready() -> void:
 	if player == 1:
@@ -37,7 +38,8 @@ func _process(dt: float) -> void:
 	pinch_hand.position.y = -20.0 + sin(Global.time * 2.0) * 1.0
 
 func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("select") and hovered_col_index >= 0:
+	if event.is_action_pressed("select") and hovered_col_index >= 0 and not is_used:
+		is_used = true
 		col_selected.emit(hovered_col_index)
 		var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
 		tween.tween_property(hand, "position:y", -40, 0.5)

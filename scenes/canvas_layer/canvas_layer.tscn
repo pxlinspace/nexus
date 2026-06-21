@@ -2,14 +2,24 @@
 
 [ext_resource type="Shader" uid="uid://bqshnpfveag70" path="res://shaders/squiggle.gdshader" id="1_knscm"]
 [ext_resource type="Script" uid="uid://d1f18gytmo5af" path="res://scenes/canvas_layer/canvas.gd" id="1_s6ffy"]
+[ext_resource type="Shader" uid="uid://by8dk7t261gqg" path="res://shaders/vignette.gdshader" id="3_weddr"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7mycd"]
 shader = ExtResource("1_knscm")
-shader_parameter/frame_rate = 8
-shader_parameter/amplitude = 4.0
-shader_parameter/wave_size = 40.0
+shader_parameter/scale = Vector2(1, 1)
+shader_parameter/strength = 1.0
+shader_parameter/fps = 6.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s6ffy"]
+shader = ExtResource("3_weddr")
+shader_parameter/radius = 0.602000028595
+shader_parameter/softness = 0.8190000389025
+shader_parameter/intensity = 0.6590000313025
+shader_parameter/contrast = 2.2
+shader_parameter/vignette_color = Color(1, 1, 1, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=1564696057]
+layer = 2
 script = ExtResource("1_s6ffy")
 
 [node name="Flashbang" type="ColorRect" parent="." unique_id=115502978]
@@ -19,5 +29,10 @@ offset_bottom = 360.0
 [node name="Squiggle" type="ColorRect" parent="." unique_id=1659880432]
 visible = false
 material = SubResource("ShaderMaterial_7mycd")
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="Vignette" type="ColorRect" parent="." unique_id=1072916155]
+material = SubResource("ShaderMaterial_s6ffy")
 offset_right = 640.0
 offset_bottom = 360.0

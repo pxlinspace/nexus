@@ -1,5 +1,8 @@
 class_name Main extends Node3D
 
+
+const CURTAINS_TRANSITION = preload("uid://fn5p7hp6wl0n")
+
 @export var sky_scroll_amount = 3.0
 @export var ring_selector_scene: PackedScene
 @export var grid_selector_scene: PackedScene
@@ -10,6 +13,8 @@ class_name Main extends Node3D
 @onready var turntable: Node3D = $Turntable
 @onready var hud_canvas: CanvasLayer = $HUD
 @onready var round_text: Label3D = $Turntable/RoundText
+@onready var curtains_transition: Node2D = $HUD/CurtainsTransition
+@onready var rounds_win_text: RichTextLabel = $HUD/RoundWinText
 
 @onready var player_data_1: PlayerData = $PlayerData1
 @onready var player_data_2: PlayerData = $PlayerData2
@@ -31,12 +36,15 @@ func _ready() -> void:
 	next_round()
 
 func next_round():
+
+	curtains_transition.transition_out()
+	# await Global.wait(1.0)
 	grid.destroy_all()
 
 	Global.camera.zoom(true)
 	Global.camera.change_player(0)
 
-	await Global.wait(1.5)
+	await Global.wait(1.75)
 
 	round_text.rotation_degrees.x = 0
 	round_text.position = original_round_text_pos
@@ -55,6 +63,7 @@ func next_round():
 	hud_canvas.add_child(ring_selector)
 	Global.camera.change_player(1 if curr_player == 2 else -1)
 
+
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
 
@@ -72,10 +81,22 @@ func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
+	if curr_player == 1:
+		player_data_1.increment_ring_ages()
+	else:
+		player_data_2.increment_ring_ages()
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
-		await Global.wait(1.0)
+		rounds_win_text.text = "[wave]Player %s wins the round![/wave]" % curr_player
+
+		curtains_transition.transition_in()
+
+		var tween = create_tween().set_trans(Tween.TRANS_SINE)
+		tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
+		tween.tween_property(rounds_win_text, "position:y", -360, 0.5).set_ease(Tween.EASE_IN).set_delay(1.75)
+
+		await Global.wait(2.0)
 
 		if round >= len(grid.grid_textures) - 1:
 			end_game()
