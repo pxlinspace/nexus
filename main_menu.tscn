@@ -4,6 +4,7 @@
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="3_jix8l"]
 [ext_resource type="PackedScene" uid="uid://c2123vehrpvka" path="res://scenes/camera/camera.tscn" id="4_glbon"]
 [ext_resource type="Texture2D" uid="uid://m8x38acwjw7n" path="res://assets/images/title.png" id="5_glbon"]
+[ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="5_nlkkf"]
 
 [sub_resource type="Gradient" id="Gradient_jix8l"]
 offsets = PackedFloat32Array(0.57417583, 1)
@@ -85,13 +86,10 @@ transform = Transform3D(3.23, 0, 0, 0, 3.1902335, 0.50528336, 0, -0.50528336, 3.
 texture_filter = 0
 texture = ExtResource("5_glbon")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=855862677]
-
-[node name="Button" type="Button" parent="CanvasLayer" unique_id=1426718561]
-offset_left = 294.0
-offset_top = 42.0
-offset_right = 341.0
-offset_bottom = 73.0
-text = "PLAY"
+[node name="Label3D" type="Label3D" parent="Turntable" unique_id=719846870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.961, -2.151)
+text = "click to play!"
+font = ExtResource("5_nlkkf")
+outline_size = 0
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
