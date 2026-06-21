@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://byjf0dodcyeyd" path="res://scenes/RingSelector/finger_ring.tscn" id="2_ugkik"]
 [ext_resource type="Texture2D" uid="uid://bed21ft67yjjq" path="res://assets/images/finger_ring.png" id="2_wfn3k"]
 [ext_resource type="Resource" uid="uid://cxypaehutoolx" path="res://resources/clubs_bottom_right.tres" id="4_3beui"]
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="4_gfjrc"]
 [ext_resource type="FontFile" uid="uid://dgg8ixo3u8r0o" path="res://assets/fonts/m3x6.ttf" id="5_d7rg1"]
 [ext_resource type="Resource" uid="uid://oxmym65tuyx0" path="res://resources/diamonds_right.tres" id="6_sosxc"]
 [ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="7_0hqad"]
@@ -15,6 +16,12 @@ size = Vector2(39.75, 406)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idl4l"]
 size = Vector2(41.75, 406)
+
+[sub_resource type="Resource" id="Resource_0hqad"]
+script = ExtResource("4_gfjrc")
+name = "ring 5 (temp)"
+desc = "lkj;aldkfjsdkfj"
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg3a2"]
 radius = 5.0
@@ -85,7 +92,7 @@ position = Vector2(191, 276)
 shape = SubResource("RectangleShape2D_lg3a2")
 
 [node name="5" parent="Hand/Rings" unique_id=1217770038 instance=ExtResource("2_ugkik")]
-ring_resource = ExtResource("6_sosxc")
+ring_resource = SubResource("Resource_0hqad")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/5" unique_id=420314800]
 position = Vector2(222.99995, 216.99997)

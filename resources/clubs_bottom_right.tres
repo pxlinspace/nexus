@@ -1,14 +1,18 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://cxypaehutoolx"]
 
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_371hx"]
-[ext_resource type="Texture2D" uid="uid://xblmviiom2k4" path="res://assets/images/desc_graphics/clubs_bottom_right.png" id="1_s30fg"]
-[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_s30fg"]
+[ext_resource type="Texture2D" uid="uid://sy2giyjys2r0" path="res://assets/images/desc_graphics/rules.png" id="1_s30fg"]
+[ext_resource type="Texture2D" uid="uid://c4xub8rb7rdy2" path="res://assets/images/blue_club.tres" id="3_t3ees"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dayg1"]
+atlas = ExtResource("1_s30fg")
+region = Rect2(0, 0, 48, 48)
 
 [resource]
 script = ExtResource("1_371hx")
 name = "Ring of Clubs"
 desc = "destroy the bottom right adjacent ring"
-desc_graphic = ExtResource("1_s30fg")
-texture = ExtResource("2_s30fg")
+desc_graphic = SubResource("AtlasTexture_dayg1")
+texture = ExtResource("3_t3ees")
 type = 2
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

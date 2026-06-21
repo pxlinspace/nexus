@@ -1,43 +1,29 @@
 [gd_scene format=3 uid="uid://cs71wkn3o1rt"]
 
+[ext_resource type="Texture2D" uid="uid://c4xub8rb7rdy2" path="res://assets/images/blue_club.tres" id="1_2gbiu"]
+[ext_resource type="Texture2D" uid="uid://px62o3gf710u" path="res://resources/brown_ring.tres" id="1_3gq6w"]
 [ext_resource type="Script" uid="uid://dwmmc6jwmv8b5" path="res://scenes/ring/ring.gd" id="1_18txc"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="2_ygikk"]
-[ext_resource type="Texture2D" uid="uid://cqjjn8om70ad7" path="res://assets/images/ring_base.png" id="4_2gbiu"]
 [ext_resource type="PackedScene" uid="uid://d1xytpunpikvw" path="res://scenes/explosion/explosion.tscn" id="4_n35nm"]
-[ext_resource type="Texture2D" uid="uid://dxji2yl6ehrgh" path="res://assets/images/ring_gems.png" id="5_2gbiu"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_3gq6w"]
-atlas = ExtResource("4_2gbiu")
-region = Rect2(0, 0, 16, 18)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4tlej"]
-atlas = ExtResource("4_2gbiu")
-region = Rect2(0, 0, 16, 18)
 
 [sub_resource type="Resource" id="Resource_18txc"]
 script = ExtResource("2_ygikk")
 name = "default"
 desc = "default"
-texture = SubResource("AtlasTexture_4tlej")
-type = 2
+texture = ExtResource("1_2gbiu")
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7xiou"]
-atlas = ExtResource("5_2gbiu")
-region = Rect2(32, 0, 16, 18)
 
 [node name="Ring" type="Sprite3D" unique_id=1856091214]
 pixel_size = 0.012
 no_depth_test = true
 texture_filter = 0
-render_priority = 1
-texture = SubResource("AtlasTexture_3gq6w")
+render_priority = 20
+texture = ExtResource("1_2gbiu")
 script = ExtResource("1_18txc")
 ring_resource = SubResource("Resource_18txc")
 explosion_scene = ExtResource("4_n35nm")
 
-[node name="Gem" type="Sprite3D" parent="." unique_id=47644020]
+[node name="Base" type="Sprite3D" parent="." unique_id=47644020]
 pixel_size = 0.012
 texture_filter = 0
-render_priority = 20
-texture = SubResource("AtlasTexture_7xiou")
+texture = ExtResource("1_3gq6w")
