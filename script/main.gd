@@ -112,7 +112,8 @@ func _on_grid_ring_dropped() -> void:
 
 		await Global.wait(3.0)
 
-		if round >= len(grid.grid_textures) - 1:
+		#if round >= len(grid.grid_textures) - 1:
+		if true:
 			end_game()
 			return
 
@@ -138,4 +139,8 @@ func update_player_score(player: int, delta: int):
 		scoreboard.get_node("Player2Score").text = str(player_2_score)
 
 func end_game():
-	print("that's the game, player ____ won!")
+	rounds_win_text.text = "[wave]Player %s wins the game!!![/wave]" % ("1" if player_1_score > player_2_score else "2")
+	var tween = create_tween().set_trans(Tween.TRANS_SINE)
+	tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
+	await Global.wait(5.0)
+	get_tree().reload_current_scene()
