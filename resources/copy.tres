@@ -18,6 +18,6 @@ name = "Wedding Ring"
 desc = "Swaps places with the ring adjacent to the right."
 desc_graphic = SubResource("AtlasTexture_rwul7")
 texture = SubResource("AtlasTexture_amxqi")
-type = 8
+type = 9
 turn_lifespan = 6
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
