@@ -42,9 +42,11 @@ func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
-	var ring_selector = ring_selector_scene.instantiate()
-	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
-	hud_canvas.add_child(ring_selector)
 	curr_player = 1 if curr_player == 2 else 2
 	print(curr_player)
+	var ring_selector = ring_selector_scene.instantiate()
+	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
+	ring_selector.set_player(curr_player)
+	hud_canvas.add_child(ring_selector)
+	
 	Global.camera.change_player(1 if curr_player == 2 else -1)
