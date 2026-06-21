@@ -14,10 +14,9 @@ region = Rect2(32, 0, 16, 18)
 
 [resource]
 script = ExtResource("1_a7vds")
-name = "Wedding Ring"
-desc = "Swaps places with the ring adjacent to the right."
+name = "Copy Ring"
+desc = "Copies the special effect of the ring to the left of it"
 desc_graphic = SubResource("AtlasTexture_rwul7")
 texture = SubResource("AtlasTexture_amxqi")
 type = 9
-turn_lifespan = 6
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
