@@ -9,13 +9,14 @@ class_name Main extends Node3D
 @onready var noise: Noise = sky_material.sky_cover.noise
 @onready var turntable: Node3D = $Turntable
 @onready var hud_canvas: CanvasLayer = $HUD
+@onready var round_text: Label3D = $Turntable/RoundText
 
 var camera: Camera
 var grid: Grid
 var selected_ring_resource: RingResource
 
 var round = 0
-var curr_player = 1
+var curr_player = 2
 
 func _enter_tree() -> void:
 	Global.main = self
@@ -23,7 +24,16 @@ func _enter_tree() -> void:
 
 func _ready() -> void:
 	Global.camera.zoom(true)
-	Global.camera.change_player(-1)
+	Global.camera.change_player(0)
+
+	await Global.wait(1.5)
+
+	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
+	tween.tween_property(round_text, "position", Vector3(0, 1.117, 0.625), 0.75)
+	tween.tween_property(round_text, "rotation_degrees:x", -90, 0.75)
+	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion))
+
+	_on_grid_ring_dropped()
 
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
@@ -38,7 +48,6 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 	hud_canvas.add_child(grid_selector)
 
 func _on_grid_selector_col_selected(col: int) -> void:
-	print(col)
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
@@ -46,5 +55,4 @@ func _on_grid_ring_dropped() -> void:
 	ring_selector.ring_selected.connect(_on_ring_selector_ring_selected)
 	hud_canvas.add_child(ring_selector)
 	curr_player = 1 if curr_player == 2 else 2
-	print(curr_player)
 	Global.camera.change_player(1 if curr_player == 2 else -1)

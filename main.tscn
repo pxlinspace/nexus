@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cwqit3hwax25j" path="res://scenes/grid/grid.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
+[ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="9_kek77"]
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
 sky_material = ExtResource("2_7mycd")
@@ -74,12 +75,18 @@ player_y_rot = 12.0
 [node name="table" parent="Turntable" unique_id=1817126526 instance=ExtResource("1_ig7tw")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 0, 0, 0)
 
-[node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
+[node name="RoundText" type="Label3D" parent="Turntable" unique_id=1640837884]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.787, 0.625)
+texture_filter = 0
+render_priority = 100
+text = "ROUND 1"
+font = ExtResource("9_kek77")
+font_size = 96
+outline_size = 0
 
-[node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
-[connection signal="ring_selected" from="HUD/RingSelector" to="." method="_on_ring_selector_ring_selected"]
 
 [editable path="Turntable/Grid"]

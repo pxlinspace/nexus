@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bifdbhusi7yhf" path="res://scenes/audio_manager/audio_manager.gd" id="1_jim7f"]
 [ext_resource type="AudioStream" uid="uid://cwd50ddkyd1ip" path="res://assets/sfx/pipe.wav" id="2_0wpo5"]
 [ext_resource type="AudioStream" uid="uid://bjtr6e0du1xy0" path="res://assets/sfx/buzzer.mp3" id="3_5a0vp"]
-[ext_resource type="AudioStream" uid="uid://6pt4eiglr76q" path="res://assets/sfx/explosion.mp3" id="4_5a0vp"]
+[ext_resource type="AudioStream" uid="uid://dq5ge0pfyudy0" path="res://assets/sfx/vine-boom.mp3" id="4_5a0vp"]
 
 [node name="AudioManager" type="AudioStreamPlayer" unique_id=1563554082]
 max_polyphony = 5
