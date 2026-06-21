@@ -56,7 +56,8 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 		hovered_ring = area
 		area.select()
 		description_label.text = "[b]" + hovered_ring.ring_resource.name + "[/b]" + "\n\n" + hovered_ring.ring_resource.desc
-		expire_label.show()
+		if area.ring_resource.type != RingResource.RingType.NOTHING:
+			expire_label.show()
 		var turns_left: int = player_data.ring_resources[area.get_index()].turn_lifespan - player_data.ring_ages[area.get_index()]
 		expire_label.text = "expires in " + str(turns_left) + " turn" + ("" if turns_left == 1 else "s")
 		text_box.show()
