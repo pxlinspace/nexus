@@ -18,3 +18,4 @@ enum RingType {
 @export var texture: Texture2D
 @export var finger_texture: Texture2D
 @export var type: RingType
+@export var turn_lifespan: int = 9
