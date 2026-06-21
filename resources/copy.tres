@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://y2bs4w603xhg"]
+
+[ext_resource type="Texture2D" uid="uid://dt0fug68ojtwl" path="res://assets/images/desc_graphics/rules2.png" id="1_4j6jj"]
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_a7vds"]
+[ext_resource type="Texture2D" uid="uid://dgh2wogvcw13e" path="res://assets/images/ring_gems3.png" id="3_jeh2s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rwul7"]
+atlas = ExtResource("1_4j6jj")
+region = Rect2(48, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_amxqi"]
+atlas = ExtResource("3_jeh2s")
+region = Rect2(32, 0, 16, 18)
+
+[resource]
+script = ExtResource("1_a7vds")
+name = "Copy Ring"
+desc = "Copies the special effect of the ring to the left of it"
+desc_graphic = SubResource("AtlasTexture_rwul7")
+texture = SubResource("AtlasTexture_amxqi")
+type = 9
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"

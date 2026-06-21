@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://bes1poyx2dfw7"]
+
+[ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="1_yq7ku"]
+
+[node name="RoundWinText" type="RichTextLabel" unique_id=1022491154]
+offset_right = 640.0
+offset_bottom = 360.0
+theme_override_fonts/normal_font = ExtResource("1_yq7ku")
+theme_override_font_sizes/normal_font_size = 32
+bbcode_enabled = true
+text = "[wave]Player 1 wins the round!"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_vertical_guides_ = [320.0]
+metadata/_edit_horizontal_guides_ = [180.0]

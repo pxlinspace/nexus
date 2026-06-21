@@ -11,6 +11,7 @@
 [ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://bitaeodqrja7l" path="res://scenes/player_data.tscn/player_data.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://fn5p7hp6wl0n" path="res://scenes/curtains_effect/curtains_transition.tscn" id="10_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bes1poyx2dfw7" path="res://scenes/round_win_text/round_win_text.tscn" id="11_dg77c"]
 
 [sub_resource type="Sky" id="Sky_kek77"]
 sky_material = ExtResource("2_7mycd")
@@ -81,9 +82,15 @@ font_size = 96
 outline_size = 0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
+layer = 3
 
 [node name="CurtainsTransition" parent="HUD" unique_id=594224243 instance=ExtResource("10_efxa6")]
 z_index = 9
+
+[node name="RoundWinText" parent="HUD" unique_id=1022491154 instance=ExtResource("11_dg77c")]
+z_index = 10
+offset_top = -360.0
+offset_bottom = 0.0
 
 [node name="PlayerData1" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
 

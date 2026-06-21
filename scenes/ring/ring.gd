@@ -1,5 +1,7 @@
 class_name Ring extends Sprite3D
 
+const standard_ring = preload("res://resources/normal.tres")
+
 @export var ring_resource: RingResource
 @export var explosion_scene: PackedScene
 @export var start_y = 2.5
@@ -56,6 +58,13 @@ func activate(grid: Grid, row: int, col: int):
 			var tween = create_tween().set_parallel().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUAD)
 			tween.tween_property(one, "position:x", two.position.x, 0.5)
 			tween.tween_property(two, "position:x", one.position.x, 0.5)
+		RingResource.RingType.DOUBLE:
+			# await grid.drop_ring(player, col, standard_ring)
+			pass
+		RingResource.RingType.COPY:
+			var ring = grid.get_pos(row, col - 1) as Ring
+			if ring != null and ring.ring_resource.type != RingResource.RingType.COPY:
+				await ring.activate(grid, row, col)
 		_:
 			print("the ring activated doesn't have an ability")
 

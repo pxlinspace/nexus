@@ -36,7 +36,6 @@ func init_grid():
 # drops a ring in the specified column
 func drop_ring(player: int, col: int, resource: RingResource):
 	# start from the lowest row
-	print(rows)
 	var row = rows - 1
 	while row >= 0:
 		if grid[row][col] == null:
