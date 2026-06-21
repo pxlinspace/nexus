@@ -1,0 +1,48 @@
+class_name PlayerData extends Node
+
+enum RING_RARITY {
+	COMMON,
+	UNCOMMON,
+	RARE
+}
+
+const RARITY_RING_MAP: Dictionary[RING_RARITY, Array] = {
+	RING_RARITY.COMMON: [
+		"res://resources/normal.tres",
+	],
+	RING_RARITY.UNCOMMON: [
+		"res://resources/clubs_bottom_right.tres",
+		"res://resources/diamonds_right.tres",
+		"res://resources/hearts_left.tres",
+		"res://resources/spades_bottom_left.tres",
+	],
+	RING_RARITY.RARE: [
+		"res://resources/heavy.tres",
+		"res://resources/thorn.tres",
+	],
+}
+
+@export var ring_resources: Array[RingResource] = [null, null, null, null, null]
+
+
+func _ready() -> void:
+	for i in ring_resources.size():
+		ring_resources[i] = _get_random_ring_resource()
+
+
+func replace_ring(index) -> void:
+	ring_resources[index] = _get_random_ring_resource()
+
+
+func _get_random_ring_resource() -> RingResource:
+	var rarity_rand: float = randf()
+	var rarity: RING_RARITY
+	if rarity_rand < 0.1:
+		rarity = RING_RARITY.RARE
+	elif rarity_rand < 0.4:
+		rarity = RING_RARITY.UNCOMMON
+	else:
+		rarity = RING_RARITY.COMMON
+	var ring_array: Array = RARITY_RING_MAP[rarity]
+	var ring_resource_path: String = ring_array[randi_range(0, ring_array.size()-1)]
+	return load(ring_resource_path)

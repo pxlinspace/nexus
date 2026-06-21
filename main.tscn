@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="9_kek77"]
+[ext_resource type="PackedScene" uid="uid://bitaeodqrja7l" path="res://scenes/player_data.tscn/player_data.tscn" id="10_4c57u"]
 
 [sub_resource type="Sky" id="Sky_kek77"]
 sky_material = ExtResource("2_7mycd")
@@ -85,6 +86,9 @@ font_size = 96
 outline_size = 0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
+
+[node name="PlayerData" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
+ring_resources = null
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
