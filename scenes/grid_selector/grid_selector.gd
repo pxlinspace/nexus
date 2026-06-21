@@ -39,6 +39,8 @@ func _process(dt: float) -> void:
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select") and hovered_col_index >= 0 and not is_used:
+		if Global.main.grid.grid[0][hovered_col_index] != null:
+			return
 		is_used = true
 		col_selected.emit(hovered_col_index)
 		var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_IN)
