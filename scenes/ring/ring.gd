@@ -4,7 +4,7 @@ const standard_ring = preload("res://resources/normal.tres")
 
 @export var ring_resource: RingResource
 @export var explosion_scene: PackedScene
-@export var start_y = 2.5
+@export var start_y = 3.0
 
 @onready var base: Sprite3D = $Base
 

@@ -83,7 +83,7 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 
 	# move scoreboard up
 	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
-	tween.tween_property(scoreboard, "position:y", 3.2, 0.5)
+	tween.tween_property(scoreboard, "position:y", 6, 0.5)
 
 func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
