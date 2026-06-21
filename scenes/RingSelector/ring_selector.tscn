@@ -4,38 +4,18 @@
 [ext_resource type="Texture2D" uid="uid://4h2cby08wwli" path="res://assets/images/hand.png" id="1_jm8e1"]
 [ext_resource type="PackedScene" uid="uid://byjf0dodcyeyd" path="res://scenes/RingSelector/finger_ring.tscn" id="2_ugkik"]
 [ext_resource type="Texture2D" uid="uid://bed21ft67yjjq" path="res://assets/images/finger_ring.png" id="2_wfn3k"]
+[ext_resource type="Resource" uid="uid://cxypaehutoolx" path="res://resources/clubs_bottom_right.tres" id="4_3beui"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="4_gfjrc"]
 [ext_resource type="FontFile" uid="uid://dgg8ixo3u8r0o" path="res://assets/fonts/m3x6.ttf" id="5_d7rg1"]
-
-[sub_resource type="Resource" id="Resource_l8xh8"]
-script = ExtResource("4_gfjrc")
-name = "ring 1 (temp)"
-desc = "awawawawaaw"
-metadata/_custom_type_script = "uid://duk6x34b3mfuy"
+[ext_resource type="Resource" uid="uid://oxmym65tuyx0" path="res://resources/diamonds_right.tres" id="6_sosxc"]
+[ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="7_0hqad"]
+[ext_resource type="Resource" uid="uid://p6f18tv3ehkk" path="res://resources/spades_bottom_left.tres" id="8_413t8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lg3a2"]
 size = Vector2(39.75, 406)
 
-[sub_resource type="Resource" id="Resource_d234n"]
-script = ExtResource("4_gfjrc")
-name = "ring 2 (temp)"
-desc = "bruh lmao"
-metadata/_custom_type_script = "uid://duk6x34b3mfuy"
-
-[sub_resource type="Resource" id="Resource_3beui"]
-script = ExtResource("4_gfjrc")
-name = "ring 3 (temp)"
-desc = "oop"
-metadata/_custom_type_script = "uid://duk6x34b3mfuy"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idl4l"]
 size = Vector2(41.75, 406)
-
-[sub_resource type="Resource" id="Resource_sosxc"]
-script = ExtResource("4_gfjrc")
-name = "ring 4 (temp)"
-desc = "eek"
-metadata/_custom_type_script = "uid://duk6x34b3mfuy"
 
 [sub_resource type="Resource" id="Resource_0hqad"]
 script = ExtResource("4_gfjrc")
@@ -59,7 +39,7 @@ position = Vector2(-49, -128)
 scale = Vector2(0.33333334, 0.33333334)
 
 [node name="1" parent="Hand/Rings" unique_id=993510901 instance=ExtResource("2_ugkik")]
-ring_resource = SubResource("Resource_l8xh8")
+ring_resource = ExtResource("4_3beui")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/1" unique_id=1929030581]
 position = Vector2(75, 248.99998)
@@ -72,7 +52,7 @@ position = Vector2(66.25, 283)
 shape = SubResource("RectangleShape2D_lg3a2")
 
 [node name="2" parent="Hand/Rings" unique_id=1922464377 instance=ExtResource("2_ugkik")]
-ring_resource = SubResource("Resource_d234n")
+ring_resource = ExtResource("6_sosxc")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/2" unique_id=1223745180]
 position = Vector2(107, 192)
@@ -85,7 +65,7 @@ position = Vector2(107.125, 273)
 shape = SubResource("RectangleShape2D_lg3a2")
 
 [node name="3" parent="Hand/Rings" unique_id=276627458 instance=ExtResource("2_ugkik")]
-ring_resource = SubResource("Resource_3beui")
+ring_resource = ExtResource("7_0hqad")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/3" unique_id=1403350577]
 z_index = 2
@@ -98,7 +78,7 @@ position = Vector2(149.125, 273)
 shape = SubResource("RectangleShape2D_idl4l")
 
 [node name="4" parent="Hand/Rings" unique_id=1255652083 instance=ExtResource("2_ugkik")]
-ring_resource = SubResource("Resource_sosxc")
+ring_resource = ExtResource("8_413t8")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hand/Rings/4" unique_id=233287827]
 z_index = 1
@@ -129,13 +109,34 @@ shape = SubResource("RectangleShape2D_lg3a2")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MouseArea" unique_id=1010632132]
 shape = SubResource("CircleShape2D_lg3a2")
 
-[node name="DescriptionLabel" type="Label" parent="." unique_id=106688613]
+[node name="TextBox" type="ColorRect" parent="." unique_id=31126398]
+visible = false
 offset_left = 261.0
-offset_top = 229.0
-offset_right = 624.0
-offset_bottom = 341.0
+offset_top = 187.0
+offset_right = 629.0
+offset_bottom = 350.0
+
+[node name="InnerBox" type="ColorRect" parent="TextBox" unique_id=77172787]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 365.0
+offset_bottom = 160.0
+color = Color(0.53333336, 0, 1, 1)
+
+[node name="DescriptionLabel" type="Label" parent="." unique_id=106688613]
+custom_minimum_size = Vector2(199, 0)
+offset_left = 277.0
+offset_top = 203.0
+offset_right = 476.0
+offset_bottom = 334.0
 theme_override_fonts/font = ExtResource("5_d7rg1")
 theme_override_font_sizes/font_size = 48
+autowrap_mode = 3
+
+[node name="DescriptionGraphic" type="Sprite2D" parent="." unique_id=65399140]
+position = Vector2(543, 266)
+scale = Vector2(3, 3)
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]
 [connection signal="area_exited" from="MouseArea" to="." method="_on_mouse_area_area_exited"]

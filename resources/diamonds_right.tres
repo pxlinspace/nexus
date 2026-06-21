@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://oxmym65tuyx0"]
+
+[ext_resource type="Texture2D" uid="uid://dc6t0fw2bmelx" path="res://assets/images/desc_graphics/spades_bottom_left.png" id="1_xe0qv"]
+[ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_yay1w"]
+[ext_resource type="Texture2D" uid="uid://buhlettu3seho" path="res://assets/images/ring.png" id="2_xe0qv"]
+
+[resource]
+script = ExtResource("1_yay1w")
+name = "Ring of Spades"
+desc = "destroy the bottom left adjacent ring"
+desc_graphic = ExtResource("1_xe0qv")
+texture = ExtResource("2_xe0qv")
+type = 2
+metadata/_custom_type_script = "uid://duk6x34b3mfuy"

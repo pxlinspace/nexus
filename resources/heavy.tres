@@ -5,8 +5,8 @@
 
 [resource]
 script = ExtResource("1_3617l")
-name = "heavy"
-desc = "its hella heavy"
+name = "Heavy Ring"
+desc = "destroy all rings in the column"
 texture = ExtResource("2_umud7")
 type = 4
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
