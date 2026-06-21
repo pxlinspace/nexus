@@ -6,7 +6,7 @@
 [resource]
 script = ExtResource("1_rey0n")
 name = "Wedding Ring"
-desc = "uhhhh"
+desc = "Swaps places with the ring adjacent to the right."
 texture = ExtResource("2_e6grw")
 type = 8
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
