@@ -82,10 +82,8 @@ outline_size = 0
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
 [node name="PlayerData1" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
-ring_resources = []
 
 [node name="PlayerData2" parent="." unique_id=882454325 instance=ExtResource("10_4c57u")]
-ring_resources = []
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
