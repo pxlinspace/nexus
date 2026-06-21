@@ -2,14 +2,16 @@ class_name Grid extends Node3D
 
 signal ring_dropped
 
-@export var rows = 6
-@export var cols = 7
 @export var grid_image_width = 128
 @export var grid_image_height = 110
 @export var ring_scene: PackedScene
-@export var all_ring_resources: Array[RingResource]
+@export var grid_textures: Array[Texture2D]
 
 @onready var front: Sprite3D = $Front
+@onready var back: Sprite3D = $Back
+
+var rows = 6
+var cols = 7
 
 var grid: Array[Array]
 var width: float
@@ -18,6 +20,11 @@ var height: float
 func _ready() -> void:
 	width = $Front.pixel_size * grid_image_width
 	height = $Front.pixel_size * grid_image_height
+
+	front.offset.y = -(11 + (18 * rows))
+	back.offset.y = -(11 + (18 * rows))
+	front.offset.x = -6
+	back.offset.x = -6
 
 	init_grid()
 
@@ -32,6 +39,7 @@ func init_grid():
 # drops a ring in the specified column
 func drop_ring(player: int, col: int, resource: RingResource):
 	# start from the lowest row
+	print(rows)
 	var row = rows - 1
 	while row >= 0:
 		if grid[row][col] == null:
@@ -51,7 +59,7 @@ func drop_ring(player: int, col: int, resource: RingResource):
 	grid[row][col] = ring
 	ring.target_pos = Vector3(
 		col * 18 * front.pixel_size + (10 * front.pixel_size),
-		-(row * 18 * front.pixel_size + (11 * front.pixel_size)),
+		-(row * 18 * front.pixel_size + (10 * front.pixel_size)),
 		0
 	)
 
@@ -114,7 +122,7 @@ func check_win():
 
 				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx] != null and ring != null and grid[cy][cx].player == ring.player:
 					count += 1
-					if count >= 4:
+					if count >= 2:
 						return ring.player
 					cx += dir.x
 					cy += dir.y
@@ -126,3 +134,22 @@ func destroy_all():
 		for col in range(cols):
 			if grid[row][col] != null:
 				destroy(row, col)
+
+func change_size(idx: int):
+	print("index: " + str(idx))
+	print("rows: " + str(rows) + ", cols: " + str(cols))
+
+	if idx % 2 == 0:
+		rows -= 1
+	else:
+		cols -= 1
+
+	print("rows after: " + str(rows) + ", cols after: " + str(cols))
+
+	front.texture = grid_textures[idx]
+	back.texture = grid_textures[idx]
+
+	front.offset.y = -(11 + (18 * rows))
+	back.offset.y = -(11 + (18 * rows))
+	front.offset.x = -6
+	back.offset.x = -6

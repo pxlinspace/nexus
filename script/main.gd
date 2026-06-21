@@ -65,15 +65,19 @@ func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
 func _on_grid_ring_dropped() -> void:
-
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
 		await Global.wait(1.0)
+
+		if round >= len(grid.grid_textures) - 1:
+			end_game()
+			return
+
 		next_round()
 		round += 1
+		grid.change_size(round)
 		return
-
 
 	curr_player = 1 if curr_player == 2 else 2
 	var ring_selector = ring_selector_scene.instantiate()
@@ -81,3 +85,6 @@ func _on_grid_ring_dropped() -> void:
 	ring_selector.set_player(curr_player)
 	hud_canvas.add_child(ring_selector)
 	Global.camera.change_player(1 if curr_player == 2 else -1)
+
+func end_game():
+	print("that's the game, player ____ won!")
