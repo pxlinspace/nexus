@@ -14,6 +14,7 @@ const CURTAINS_TRANSITION = preload("uid://fn5p7hp6wl0n")
 @onready var hud_canvas: CanvasLayer = $HUD
 @onready var round_text: Label3D = $Turntable/RoundText
 @onready var curtains_transition: Node2D = $HUD/CurtainsTransition
+@onready var rounds_win_text: RichTextLabel = $HUD/RoundWinText
 
 @onready var player_data_1: PlayerData = $PlayerData1
 @onready var player_data_2: PlayerData = $PlayerData2
@@ -35,13 +36,15 @@ func _ready() -> void:
 	next_round()
 
 func next_round():
+
+	curtains_transition.transition_out()
+	# await Global.wait(1.0)
 	grid.destroy_all()
 
 	Global.camera.zoom(true)
 	Global.camera.change_player(0)
 
-	await Global.wait(1.5)
-	curtains_transition.transition_out()
+	await Global.wait(1.75)
 
 	round_text.rotation_degrees.x = 0
 	round_text.position = original_round_text_pos
@@ -85,9 +88,15 @@ func _on_grid_ring_dropped() -> void:
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
-		
+		rounds_win_text.text = "[wave]Player %s wins the round![/wave]" % curr_player
+
 		curtains_transition.transition_in()
-		await Global.wait(1.0)
+
+		var tween = create_tween().set_trans(Tween.TRANS_SINE)
+		tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
+		tween.tween_property(rounds_win_text, "position:y", -360, 0.5).set_ease(Tween.EASE_IN).set_delay(1.75)
+
+		await Global.wait(2.0)
 
 		if round >= len(grid.grid_textures) - 1:
 			end_game()
@@ -97,7 +106,7 @@ func _on_grid_ring_dropped() -> void:
 		round += 1
 		grid.change_size(round)
 		return
-	
+
 	curr_player = 1 if curr_player == 2 else 2
 	var ring_selector = ring_selector_scene.instantiate()
 	ring_selector.player_data = player_data_1 if curr_player == 1 else player_data_2

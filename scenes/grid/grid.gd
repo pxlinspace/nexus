@@ -118,7 +118,7 @@ func check_win():
 
 				while cx >= 0 and cx < cols and cy >= 0 and cy < rows and grid[cy][cx] != null and ring != null and grid[cy][cx].player == ring.player:
 					count += 1
-					if count >= 4:
+					if count >= 1:
 						return ring.player
 					cx += dir.x
 					cy += dir.y
