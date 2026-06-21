@@ -23,6 +23,8 @@ func _ready() -> void:
 	tween.tween_property(hand, "position", Vector2(hand.position.x, HAND_UP_POSITION_Y), 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 
+	text_box.hide()
+	description_label.visible_ratio = 0
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
@@ -50,6 +52,9 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 				continue
 			ring.deselect()
 
+		description_label.visible_ratio = 0
+		var tween = create_tween()
+		tween.tween_property(description_label, "visible_ratio", 1.0, 0.3)
 
 func _on_mouse_area_area_exited(area: Area2D) -> void:
 	if is_ring_used or area != hovered_ring:
