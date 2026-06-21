@@ -94,7 +94,7 @@ func _begin_hovered_ring_animation() -> void:
 
 func _use_hovered_ring() -> void:
 	ring_selected.emit(hovered_ring.ring_resource)
-	player_data.replace_ring(int(hovered_ring.name) - 1)
+	# player_data.replace_ring(int(hovered_ring.name) - 1)
 	queue_free()
 
 
