@@ -26,6 +26,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
+	hand.position.y = HAND_UP_POSITION_Y + sin(Global.time * 2.0) * 1.0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select"):

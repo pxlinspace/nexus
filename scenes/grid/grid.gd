@@ -80,7 +80,7 @@ func destroy(row: int, col: int):
 
 	var target = grid[r][c]
 	if target:
-		Global.camera.shake(0.1, 0.01)
+		Global.camera.shake(0.1, 0.02)
 		await target.destroy()
 		grid[r][c] = null
 
