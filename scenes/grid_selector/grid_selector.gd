@@ -53,12 +53,14 @@ func _input(event: InputEvent) -> void:
 
 func _on_mouse_area_area_entered(area: Area2D) -> void:
 	hovered_col_index = area.get_index()
+	area.showarrow()
 	target_hand_x = area.position.x
 
 
-func _on_mouse_area_area_exited(_area: Area2D) -> void:
+func _on_mouse_area_area_exited(area: Area2D) -> void:
 	if mouse_area.get_overlapping_areas().is_empty():
 		hovered_col_index = -1
+	area.hidearrow()
 
 
 func set_player(new_player: int) -> void:
