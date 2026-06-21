@@ -12,7 +12,7 @@ var is_ring_used: bool = false
 @onready var hand: Sprite2D = $Hand
 @onready var mouse_area: Area2D = $MouseArea
 @onready var rings: Node2D = $Hand/Rings
-@onready var description_label: Label = $Description/DescriptionLabel
+@onready var description_label: RichTextLabel = $Description/DescriptionLabel
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
 
@@ -38,13 +38,13 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 	if area is FingerRing:
 		hovered_ring = area
 		area.select()
-		description_label.text = hovered_ring.ring_resource.desc
+		description_label.text = "[b]" + hovered_ring.ring_resource.name + "[/b]" + "\n\n" + hovered_ring.ring_resource.desc
 		text_box.show()
 		if hovered_ring.ring_resource.desc_graphic:
 			description_graphic.texture = hovered_ring.ring_resource.desc_graphic
 		else:
 			description_graphic.texture = null
-		
+
 		for ring in rings.get_children():
 			if ring == hovered_ring:
 				continue
