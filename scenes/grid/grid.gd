@@ -1,7 +1,5 @@
 class_name Grid extends Node3D
 
-signal ring_dropped
-
 @export var rows = 6
 @export var cols = 7
 @export var grid_image_width = 128
@@ -65,9 +63,6 @@ func drop_ring(player: int, col: int, resource: RingResource):
 	await ring.animate_to_pos()
 	await Global.wait(0.4)
 	await ring.activate(self, row, col)
-	await Global.wait(0.4)
-
-	ring_dropped.emit()
 
 # destroys a ring in the grid at the specified position
 func destroy(row: int, col: int):
