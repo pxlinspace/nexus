@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://cwqit3hwax25j" path="res://scenes/grid/grid.tscn" id="3_h2yge"]
 [ext_resource type="Shader" uid="uid://dpsdr1oymjtsa" path="res://shaders/ground.gdshader" id="4_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
-[ext_resource type="PackedScene" uid="uid://dx4uibp8skkg2" path="res://scenes/grid_selector/grid_selector.tscn" id="8_5vw27"]
 
 [sub_resource type="Sky" id="Sky_ig7tw"]
 sky_material = ExtResource("2_7mycd")
@@ -74,12 +73,9 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
-[node name="GridSelector" parent="HUD" unique_id=1135313067 instance=ExtResource("8_5vw27")]
-
 [node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
-[connection signal="col_selected" from="HUD/GridSelector" to="." method="_on_grid_selector_col_selected"]
 [connection signal="ring_selected" from="HUD/RingSelector" to="." method="_on_ring_selector_ring_selected"]
 
 [editable path="Turntable/Grid"]
