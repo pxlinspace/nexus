@@ -116,6 +116,11 @@ func set_player(player: int) -> void:
 	if player == 1:
 		# change the color
 		$Hand.self_modulate = accent_color
+		$"Hand/Rings/1".make_brown()
+		$"Hand/Rings/2".make_brown()
+		$"Hand/Rings/3".make_brown()
+		$"Hand/Rings/4".make_brown()
+		$"Hand/Rings/5".make_brown()
 	else:
 		# flip the x
 		for node in get_children():

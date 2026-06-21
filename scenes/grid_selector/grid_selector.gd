@@ -19,6 +19,7 @@ var is_used = false
 func _ready() -> void:
 	if player == 1:
 		hand.modulate = accent_color
+		
 	# spawn mouse column areas
 	var num_cols = Global.main.grid.cols
 	for i in range(num_cols):
