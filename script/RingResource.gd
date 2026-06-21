@@ -10,7 +10,6 @@ enum RingType {
 	THORN,
 	ONE_RING,
 	WEDDING,
-	DOUBLE,
 	COPY
 }
 
