@@ -21,10 +21,7 @@ func _ready() -> void:
 	width = $Front.pixel_size * grid_image_width
 	height = $Front.pixel_size * grid_image_height
 
-	front.offset.y = -(11 + (18 * rows))
-	back.offset.y = -(11 + (18 * rows))
-	front.offset.x = -6
-	back.offset.x = -6
+	change_size(0)
 
 	init_grid()
 
@@ -139,10 +136,13 @@ func change_size(idx: int):
 	print("index: " + str(idx))
 	print("rows: " + str(rows) + ", cols: " + str(cols))
 
-	if idx % 2 == 0:
-		rows -= 1
-	else:
-		cols -= 1
+	if idx > 0:
+		if idx % 2 == 0:
+			rows -= 1
+			position.y -= 18 * 0.012
+		else:
+			cols -= 1
+			position.x += 18.0 / 2 * 0.012
 
 	print("rows after: " + str(rows) + ", cols after: " + str(cols))
 
