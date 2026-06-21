@@ -9,4 +9,5 @@ name = "Wedding Ring"
 desc = "Swaps places with the ring adjacent to the right."
 texture = ExtResource("2_e6grw")
 type = 8
+turn_lifespan = 6
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

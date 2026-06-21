@@ -11,4 +11,5 @@ desc = "Destroy the left adjacent ring."
 desc_graphic = ExtResource("1_a2vcl")
 texture = ExtResource("3_dayg1")
 type = 3
+turn_lifespan = 6
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

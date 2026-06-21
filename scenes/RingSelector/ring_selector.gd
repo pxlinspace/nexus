@@ -28,10 +28,11 @@ func _ready() -> void:
 
 	text_box.hide()
 	description_label.visible_ratio = 0
-
+	
 	for i in range(player_data.ring_resources.size()):
 		if player_data.ring_resources[i] != null:
 			rings.get_child(i).ring_resource = player_data.ring_resources[i]
+			print(rings.get_child(i).ring_resource.name)
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
@@ -96,7 +97,7 @@ func _begin_hovered_ring_animation() -> void:
 
 func _use_hovered_ring() -> void:
 	ring_selected.emit(hovered_ring.ring_resource)
-	# player_data.replace_ring(int(hovered_ring.name) - 1)
+	player_data.replace_ring(int(hovered_ring.name) - 1)
 	queue_free()
 
 
