@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c3rbwppnb2xwc" path="res://scenes/RingSelector/ring_selector.tscn" id="7_272bh"]
 [ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://bitaeodqrja7l" path="res://scenes/player_data.tscn/player_data.tscn" id="10_4c57u"]
+[ext_resource type="PackedScene" uid="uid://fn5p7hp6wl0n" path="res://scenes/curtains_effect/curtains_transition.tscn" id="10_efxa6"]
 
 [sub_resource type="Sky" id="Sky_kek77"]
 sky_material = ExtResource("2_7mycd")
@@ -81,11 +82,13 @@ outline_size = 0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
+[node name="CurtainsTransition" parent="HUD" unique_id=594224243 instance=ExtResource("10_efxa6")]
+z_index = 9
+
 [node name="PlayerData1" parent="." unique_id=396918644 instance=ExtResource("10_4c57u")]
-ring_resources = []
 
 [node name="PlayerData2" parent="." unique_id=882454325 instance=ExtResource("10_4c57u")]
-ring_resources = []
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
+[connection signal="finished_transition_in" from="HUD/CurtainsTransition" to="." method="_on_curtains_transition_finished_transition_in"]
