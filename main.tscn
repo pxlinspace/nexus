@@ -77,9 +77,9 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 
 [node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
+position = Vector2(-39, -64)
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
 [connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
-[connection signal="ring_selected" from="HUD/RingSelector" to="." method="_on_ring_selector_ring_selected"]
 
 [editable path="Turntable/Grid"]
