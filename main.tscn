@@ -11,7 +11,10 @@
 [ext_resource type="FontFile" uid="uid://cyerx3kvo7tfq" path="res://assets/fonts/m6x11.ttf" id="9_kek77"]
 [ext_resource type="PackedScene" uid="uid://bitaeodqrja7l" path="res://scenes/player_data.tscn/player_data.tscn" id="10_4c57u"]
 [ext_resource type="PackedScene" uid="uid://fn5p7hp6wl0n" path="res://scenes/curtains_effect/curtains_transition.tscn" id="10_efxa6"]
+[ext_resource type="Texture2D" uid="uid://cheunimhc72x" path="res://assets/images/counter.png" id="10_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://bes1poyx2dfw7" path="res://scenes/round_win_text/round_win_text.tscn" id="11_dg77c"]
+[ext_resource type="Texture2D" uid="uid://cxa608rxx0ujd" path="res://assets/images/counter_background.png" id="11_vivmo"]
+[ext_resource type="FontFile" uid="uid://b4ifxgweguspe" path="res://assets/fonts/m5x7.ttf" id="11_w48qg"]
 
 [sub_resource type="Sky" id="Sky_kek77"]
 sky_material = ExtResource("2_7mycd")
@@ -57,6 +60,7 @@ autostart = true
 [node name="Turntable" type="Node3D" parent="." unique_id=86508674]
 
 [node name="Ground" type="MeshInstance3D" parent="Turntable" unique_id=956619098]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0022277832, 0.00012207031)
 mesh = SubResource("PlaneMesh_1bvp3")
 
 [node name="Grid" parent="Turntable" unique_id=225806234 instance=ExtResource("3_h2yge")]
@@ -80,6 +84,31 @@ text = "ROUND 1"
 font = ExtResource("9_kek77")
 font_size = 96
 outline_size = 0
+
+[node name="Scoreboard" type="Sprite3D" parent="Turntable" unique_id=230694161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.737, 0)
+pixel_size = 0.007
+texture = ExtResource("10_ycdy4")
+
+[node name="Background" type="Sprite3D" parent="Turntable/Scoreboard" unique_id=2011311073]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.12504697)
+pixel_size = 0.007
+texture = ExtResource("11_vivmo")
+
+[node name="Player1Score" type="Label3D" parent="Turntable/Scoreboard" unique_id=385035619]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.10697031, 0, 0)
+texture_filter = 0
+render_priority = 2
+text = "0"
+font = ExtResource("11_w48qg")
+
+[node name="Player2Score" type="Label3D" parent="Turntable/Scoreboard" unique_id=1960308713]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11383997, 0, 0)
+texture_filter = 0
+render_priority = 2
+modulate = Color(0.7294118, 0.33333334, 0.1254902, 1)
+text = "0"
+font = ExtResource("11_w48qg")
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
 layer = 3

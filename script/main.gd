@@ -15,6 +15,7 @@ const CURTAINS_TRANSITION = preload("uid://fn5p7hp6wl0n")
 @onready var round_text: Label3D = $Turntable/RoundText
 @onready var curtains_transition: Node2D = $HUD/CurtainsTransition
 @onready var rounds_win_text: RichTextLabel = $HUD/RoundWinText
+@onready var scoreboard: Sprite3D = $Turntable/Scoreboard
 
 @onready var player_data_1: PlayerData = $PlayerData1
 @onready var player_data_2: PlayerData = $PlayerData2
@@ -27,6 +28,9 @@ var round = 0
 var curr_player = 1
 var original_round_text_pos: Vector3
 
+var player_1_score = 0
+var player_2_score = 0
+
 func _enter_tree() -> void:
 	Global.main = self
 	grid = $Turntable/Grid
@@ -37,7 +41,6 @@ func _ready() -> void:
 	next_round()
 
 func next_round():
-	
 	curtains_transition.transition_out()
 	# await Global.wait(1.0)
 	grid.destroy_all()
@@ -78,6 +81,10 @@ func _on_ring_selector_ring_selected(ring_resource: RingResource) -> void:
 	grid_selector.col_selected.connect(_on_grid_selector_col_selected)
 	hud_canvas.add_child(grid_selector)
 
+	# move scoreboard up
+	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(scoreboard, "position:y", 3.2, 0.5)
+
 func _on_grid_selector_col_selected(col: int) -> void:
 	grid.drop_ring(curr_player, col, selected_ring_resource)
 
@@ -86,14 +93,20 @@ func _on_grid_ring_dropped() -> void:
 		player_data_1.increment_ring_ages()
 	else:
 		player_data_2.increment_ring_ages()
+
+	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
+	tween.tween_property(scoreboard, "position:y", 2.737, 0.5)
+
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
 		rounds_win_text.text = "[wave]Player %s wins the round![/wave]" % curr_player
 
+		update_player_score(curr_player, 1)
+
 		curtains_transition.transition_in()
 
-		var tween = create_tween().set_trans(Tween.TRANS_SINE)
+		tween = create_tween().set_trans(Tween.TRANS_SINE)
 		tween.tween_property(rounds_win_text, "position:y", 0, 0.5).set_ease(Tween.EASE_OUT).set_delay(0.5)
 		tween.tween_property(rounds_win_text, "position:y", -360, 0.5).set_ease(Tween.EASE_IN).set_delay(1.75)
 
@@ -115,6 +128,14 @@ func _on_grid_ring_dropped() -> void:
 	ring_selector.set_player(curr_player)
 	hud_canvas.add_child(ring_selector)
 	Global.camera.change_player(1 if curr_player == 2 else -1)
+
+func update_player_score(player: int, delta: int):
+	if player == 1:
+		player_1_score += delta
+		scoreboard.get_node("Player1Score").text = str(player_1_score)
+	else:
+		player_2_score += delta
+		scoreboard.get_node("Player2Score").text = str(player_2_score)
 
 func end_game():
 	print("that's the game, player ____ won!")
