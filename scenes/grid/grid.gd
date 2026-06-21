@@ -63,6 +63,16 @@ func drop_ring(player: int, col: int, resource: RingResource):
 
 	ring_dropped.emit()
 
+func set_pos(val: Ring, row: int, col: int):
+	var r = wrapi(row, 0, rows)
+	var c = wrapi(col, 0, cols)
+	grid[r][c] = val
+
+func get_pos(row: int, col: int):
+	var r = wrapi(row, 0, rows)
+	var c = wrapi(col, 0, cols)
+	return grid[r][c]
+
 # destroys a ring in the grid at the specified position
 func destroy(row: int, col: int):
 	var r = wrapi(row, 0, rows)

@@ -46,6 +46,10 @@ func activate(grid: Grid, row: int, col: int):
 			for i in range(row + 1, grid.rows):
 				bump(Vector2(0, 1))
 				await grid.destroy(i, col)
+		RingResource.RingType.WEDDING:
+			var temp = grid.get_pos(row, col)
+			grid.set_pos(grid.get_pos(row, col + 1), row, col)
+			grid.set_pos(temp, row, col + 1)
 		_:
 			print("the ring activated doesn't have an ability")
 

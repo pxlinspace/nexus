@@ -2,6 +2,8 @@ extends Node2D
 
 signal ring_selected(ring_resource: RingResource)
 
+@export var accent_color: Color
+
 const HAND_UP_POSITION_Y: float = 384.0
 const HAND_DOWN_POSITION_Y: float = 720.0
 
@@ -85,6 +87,9 @@ func _use_hovered_ring() -> void:
 
 func set_player(player: int) -> void:
 	if player == 1:
-		return
-	for node in get_children():
-		node.position.x = 640.0 - node.position.x
+		# change the color
+		$Hand.self_modulate = accent_color
+	else:
+		# flip the x
+		for node in get_children():
+			node.position.x = 640.0 - node.position.x
