@@ -39,7 +39,6 @@ size = Vector2(1000, 1000)
 [node name="Main" type="Node3D" unique_id=2049804799]
 script = ExtResource("1_lquwl")
 sky_scroll_amount = 10.0
-ring_selector_scene = ExtResource("7_272bh")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=338819543]
 environment = SubResource("Environment_7dm0k")
@@ -77,7 +76,5 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="RingSelector" parent="HUD" unique_id=620474103 instance=ExtResource("7_272bh")]
 
 [connection signal="timeout" from="WorldEnvironment/SkyTimer" to="." method="_on_sky_timer_timeout"]
-[connection signal="ring_dropped" from="Turntable/Grid" to="." method="_on_grid_ring_dropped"]
-[connection signal="ring_selected" from="HUD/RingSelector" to="." method="_on_ring_selector_ring_selected"]
 
 [editable path="Turntable/Grid"]
