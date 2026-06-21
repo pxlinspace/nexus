@@ -27,7 +27,7 @@ func _ready() -> void:
 		col.position.y = 360.0 / 2
 		grid_columns.add_child(col)
 
-	target_hand_x = get_global_mouse_position().x
+	target_hand_x = grid_columns.get_child(0).position.x
 	var tween = create_tween().set_trans(Tween.TRANS_CIRC).set_ease(Tween.EASE_OUT)
 	tween.tween_property(hand, "position:y", 24, 0.5)
 
