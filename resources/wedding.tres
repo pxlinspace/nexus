@@ -1,12 +1,18 @@
 [gd_resource type="Resource" script_class="RingResource" format=3 uid="uid://bq7e8kor1tm4m"]
 
+[ext_resource type="Texture2D" uid="uid://dt0fug68ojtwl" path="res://assets/images/desc_graphics/rules2.png" id="1_kk5qb"]
 [ext_resource type="Script" uid="uid://duk6x34b3mfuy" path="res://script/RingResource.gd" id="1_rey0n"]
-[ext_resource type="Texture2D" uid="uid://demgfetl2b6dm" path="res://assets/images/red_heart.tres" id="2_e6grw"]
+[ext_resource type="Texture2D" uid="uid://f616ln1cnhgo" path="res://assets/images/diamond_gem.tres" id="2_e6grw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeh2s"]
+atlas = ExtResource("1_kk5qb")
+region = Rect2(0, 0, 48, 48)
 
 [resource]
 script = ExtResource("1_rey0n")
 name = "Wedding Ring"
 desc = "Swaps places with the ring adjacent to the right."
+desc_graphic = SubResource("AtlasTexture_jeh2s")
 texture = ExtResource("2_e6grw")
 type = 8
 turn_lifespan = 6
