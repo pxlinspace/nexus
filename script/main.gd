@@ -32,6 +32,7 @@ func _enter_tree() -> void:
 	grid = $Turntable/Grid
 
 func _ready() -> void:
+	AudioManager.play_sound(AudioManager.music, 0, 4)
 	original_round_text_pos = round_text.position
 	next_round()
 
@@ -52,7 +53,7 @@ func next_round():
 	var tween = create_tween().set_parallel().set_trans(Tween.TRANS_QUINT).set_ease(Tween.EASE_IN)
 	tween.tween_property(round_text, "position", Vector3(0, 1.117, 0.625), 0.75)
 	tween.tween_property(round_text, "rotation_degrees:x", -90, 0.75)
-	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion))
+	tween.chain().tween_callback(func(): AudioManager.play_sound(AudioManager.explosion, 0, -6))
 
 	curr_player = 1 if round % 2 == 0 else 2
 

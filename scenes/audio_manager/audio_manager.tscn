@@ -5,6 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://brerl7xeit12n" path="res://assets/sfx/ring_hit_grid.wav" id="4_5a0vp"]
 [ext_resource type="AudioStream" uid="uid://dq5ge0pfyudy0" path="res://assets/sfx/vine-boom.mp3" id="4_sj6oc"]
 [ext_resource type="AudioStream" uid="uid://bmkdrprirtn7v" path="res://assets/sfx/bump.wav" id="5_sj6oc"]
+[ext_resource type="AudioStream" uid="uid://lyg551fiq48w" path="res://assets/sfx/Vibing Over Venus.mp3" id="6_pwxbx"]
 
 [node name="AudioManager" type="AudioStreamPlayer" unique_id=1563554082]
 max_polyphony = 5
@@ -13,3 +14,4 @@ hit = ExtResource("4_5a0vp")
 buzzer = ExtResource("3_5a0vp")
 explosion = ExtResource("4_sj6oc")
 bump = ExtResource("5_sj6oc")
+music = ExtResource("6_pwxbx")

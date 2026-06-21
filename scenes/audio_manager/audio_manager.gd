@@ -4,6 +4,7 @@ extends AudioStreamPlayer
 @export var buzzer: AudioStream
 @export var explosion: AudioStream
 @export var bump: AudioStream
+@export var music: AudioStream
 
 func play_sound(sound: AudioStream, randomness: float = 0, new_volume_db: float = 0):
 	var player = AudioStreamPlayer.new()
