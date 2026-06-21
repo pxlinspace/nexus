@@ -44,7 +44,6 @@ func activate(grid: Grid, row: int, col: int):
 			await grid.destroy(row, col + 1)
 		RingResource.RingType.HEAVY:
 			for i in range(row + 1, grid.rows):
-				bump(Vector2(0, 1))
 				await grid.destroy(i, col)
 		RingResource.RingType.WEDDING:
 			if grid.get_pos(row, col + 1) == null:
