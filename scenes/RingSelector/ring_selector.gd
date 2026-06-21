@@ -12,7 +12,7 @@ var is_ring_used: bool = false
 @onready var hand: Sprite2D = $Hand
 @onready var mouse_area: Area2D = $MouseArea
 @onready var rings: Node2D = $Hand/Rings
-@onready var description_label: Label = $Description/DescriptionLabel
+@onready var description_label: RichTextLabel = $Description/DescriptionLabel
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
 
@@ -23,6 +23,8 @@ func _ready() -> void:
 	tween.tween_property(hand, "position", Vector2(hand.position.x, HAND_UP_POSITION_Y), 0.75) \
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 
+	text_box.hide()
+	description_label.visible_ratio = 0
 
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
@@ -38,18 +40,21 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 	if area is FingerRing:
 		hovered_ring = area
 		area.select()
-		description_label.text = hovered_ring.ring_resource.desc
+		description_label.text = "[b]" + hovered_ring.ring_resource.name + "[/b]" + "\n\n" + hovered_ring.ring_resource.desc
 		text_box.show()
 		if hovered_ring.ring_resource.desc_graphic:
 			description_graphic.texture = hovered_ring.ring_resource.desc_graphic
 		else:
 			description_graphic.texture = null
-		
+
 		for ring in rings.get_children():
 			if ring == hovered_ring:
 				continue
 			ring.deselect()
 
+		description_label.visible_ratio = 0
+		var tween = create_tween()
+		tween.tween_property(description_label, "visible_ratio", 1.0, 0.3)
 
 func _on_mouse_area_area_exited(area: Area2D) -> void:
 	if is_ring_used or area != hovered_ring:

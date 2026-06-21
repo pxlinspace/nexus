@@ -3,12 +3,13 @@
 [ext_resource type="Script" uid="uid://l1qrvj7bqbhu" path="res://scenes/RingSelector/ring_selector.gd" id="1_idl4l"]
 [ext_resource type="Texture2D" uid="uid://4h2cby08wwli" path="res://assets/images/hand.png" id="1_jm8e1"]
 [ext_resource type="PackedScene" uid="uid://byjf0dodcyeyd" path="res://scenes/RingSelector/finger_ring.tscn" id="2_ugkik"]
-[ext_resource type="Resource" uid="uid://cxypaehutoolx" path="res://resources/clubs_bottom_right.tres" id="4_3beui"]
+[ext_resource type="Resource" uid="uid://c5lumvxitcybu" path="res://resources/thorn.tres" id="4_0hqad"]
 [ext_resource type="FontFile" uid="uid://dgg8ixo3u8r0o" path="res://assets/fonts/m3x6.ttf" id="5_d7rg1"]
 [ext_resource type="Resource" uid="uid://oxmym65tuyx0" path="res://resources/diamonds_right.tres" id="6_sosxc"]
 [ext_resource type="Resource" uid="uid://bjiu3vma1801q" path="res://resources/hearts_left.tres" id="7_0hqad"]
 [ext_resource type="Resource" uid="uid://bq7e8kor1tm4m" path="res://resources/wedding.tres" id="8_0hqad"]
 [ext_resource type="Resource" uid="uid://1a7e5tkrgfes" path="res://resources/heavy.tres" id="9_0hqad"]
+[ext_resource type="FontFile" uid="uid://b4ifxgweguspe" path="res://assets/fonts/m5x7.ttf" id="10_0hqad"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg3a2"]
 radius = 5.0
@@ -30,7 +31,7 @@ scale = Vector2(0.33333334, 0.33333334)
 [node name="1" parent="Hand/Rings" unique_id=993510901 instance=ExtResource("2_ugkik")]
 position = Vector2(65.00001, 224)
 rotation = -0.3036873
-ring_resource = ExtResource("4_3beui")
+ring_resource = ExtResource("4_0hqad")
 
 [node name="2" parent="Hand/Rings" unique_id=1922464377 instance=ExtResource("2_ugkik")]
 position = Vector2(105.00001, 170.00002)
@@ -60,7 +61,7 @@ collision_layer = 0
 shape = SubResource("CircleShape2D_lg3a2")
 
 [node name="Description" type="Node2D" parent="." unique_id=910368134]
-position = Vector2(441, 0)
+position = Vector2(441, -30)
 
 [node name="TextBox" type="ColorRect" parent="Description" unique_id=31126398]
 offset_left = -180.0
@@ -76,15 +77,19 @@ offset_right = 365.0
 offset_bottom = 160.0
 color = Color(0.53333336, 0, 1, 1)
 
-[node name="DescriptionLabel" type="Label" parent="Description" unique_id=106688613]
-custom_minimum_size = Vector2(199, 0)
+[node name="DescriptionLabel" type="RichTextLabel" parent="Description" unique_id=1831624969]
+custom_minimum_size = Vector2(190, 0)
 offset_left = -164.0
-offset_top = 203.0
-offset_right = 35.0
-offset_bottom = 334.0
-theme_override_fonts/font = ExtResource("5_d7rg1")
-theme_override_font_sizes/font_size = 48
-autowrap_mode = 3
+offset_top = 194.0
+offset_right = 26.0
+offset_bottom = 343.0
+theme_override_fonts/normal_font = ExtResource("5_d7rg1")
+theme_override_fonts/bold_font = ExtResource("10_0hqad")
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+bbcode_enabled = true
+text = "sadfasdf
+asdfasdfasdfasdfas"
 
 [node name="DescriptionGraphic" type="Sprite2D" parent="Description" unique_id=65399140]
 position = Vector2(102, 266)
