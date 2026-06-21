@@ -12,6 +12,7 @@ var is_ring_used: bool = false
 @onready var hand: Sprite2D = $Hand
 @onready var mouse_area: Area2D = $MouseArea
 @onready var rings: Node2D = $Hand/Rings
+@onready var description: Node2D = $Description
 @onready var description_label: RichTextLabel = $Description/DescriptionLabel
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
@@ -35,6 +36,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	mouse_area.position = get_local_mouse_position()
 	hand.position.y = HAND_UP_POSITION_Y + sin(Global.time * 2.0) * 1.0
+	description.position.y = -30.0 + sin(Global.time * 5.0) * 1.0
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("select"):
