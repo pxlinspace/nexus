@@ -81,6 +81,7 @@ font_size = 96
 outline_size = 0
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=1619959750]
+layer = 3
 
 [node name="CurtainsTransition" parent="HUD" unique_id=594224243 instance=ExtResource("10_efxa6")]
 z_index = 9
