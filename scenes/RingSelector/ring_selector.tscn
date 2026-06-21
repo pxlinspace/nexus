@@ -10,6 +10,7 @@
 [ext_resource type="Resource" uid="uid://bq7e8kor1tm4m" path="res://resources/wedding.tres" id="8_0hqad"]
 [ext_resource type="Resource" uid="uid://1a7e5tkrgfes" path="res://resources/heavy.tres" id="9_0hqad"]
 [ext_resource type="FontFile" uid="uid://b4ifxgweguspe" path="res://assets/fonts/m5x7.ttf" id="10_0hqad"]
+[ext_resource type="AudioStream" uid="uid://di7n11eym82ou" path="res://assets/sfx/select_ring.wav" id="11_413t8"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_lg3a2"]
 radius = 5.0
@@ -124,6 +125,9 @@ theme_override_fonts/font = ExtResource("10_0hqad")
 theme_override_font_sizes/font_size = 32
 text = "PLAYER 1 - PICK A RING"
 horizontal_alignment = 1
+
+[node name="SelectRingAudio" type="AudioStreamPlayer" parent="." unique_id=169725655]
+stream = ExtResource("11_413t8")
 
 [connection signal="area_entered" from="MouseArea" to="." method="_on_mouse_area_area_entered"]
 [connection signal="area_exited" from="MouseArea" to="." method="_on_mouse_area_area_exited"]

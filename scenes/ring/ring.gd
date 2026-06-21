@@ -18,15 +18,15 @@ func _ready() -> void:
 func animate_to_pos():
 	var tween = create_tween().set_trans(Tween.TRANS_BOUNCE).set_ease(Tween.EASE_OUT).set_parallel()
 	tween.tween_property(self, "position", target_pos, 1.0)
-	tween.tween_callback(func(): bounce()).set_delay(0.4)
-	tween.tween_callback(func(): bounce()).set_delay(0.75)
-	tween.tween_callback(func(): bounce()).set_delay(0.85)
+	tween.tween_callback(func(): bounce(0)).set_delay(0.4)
+	tween.tween_callback(func(): bounce(-3)).set_delay(0.75)
+	tween.tween_callback(func(): bounce(-6)).set_delay(0.85)
 	await tween.finished
 
-func bounce():
+func bounce(volume_db):
 	Global.camera.shake(0.1, 0.005)
 	# probably play a sound effect here
-	AudioManager.play_sound(AudioManager.hit)
+	AudioManager.play_sound(AudioManager.hit, 0, volume_db)
 
 func activate(grid: Grid, row: int, col: int):
 	match ring_resource.type:
@@ -64,6 +64,7 @@ func bump(dir: Vector2):
 	var original_pos = position
 	position += Vector3(dir.x, dir.y, 0) * 0.075
 	tween.tween_property(self, "position", original_pos, 0.2)
+	AudioManager.play_sound(AudioManager.bump)
 
 func destroy():
 	AudioManager.play_sound(AudioManager.explosion)

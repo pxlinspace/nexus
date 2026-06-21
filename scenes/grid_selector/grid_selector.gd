@@ -9,6 +9,7 @@ signal col_selected(col: int)
 @onready var hand: Node2D = $Hand
 @onready var pinch_hand: Sprite2D = $Hand/PinchHand
 @onready var open_hand: Sprite2D = $Hand/OpenHand
+@onready var drop_ring_audio: AudioStreamPlayer = $DropRingAudio
 
 # var hovered_col: GridColArea
 var hovered_col_index: int = -1
@@ -43,6 +44,7 @@ func _input(event: InputEvent) -> void:
 		tween.tween_property(hand, "position:y", -40, 0.5)
 		pinch_hand.hide()
 		open_hand.show()
+		drop_ring_audio.play()
 		await tween.finished
 		queue_free()
 
