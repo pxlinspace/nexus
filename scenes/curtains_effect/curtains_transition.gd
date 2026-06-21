@@ -10,6 +10,7 @@ const TWEEN_DURATION: float = 0.75
 @onready var left_curtain: Sprite2D = $LeftCurtain
 @onready var right_curtain: Sprite2D = $RightCurtain
 
+
 func _ready() -> void:
 	left_curtain.position.x = CENTER_X-OFFSET_X
 	right_curtain.position.x = CENTER_X+OFFSET_X

@@ -1,5 +1,8 @@
 class_name Main extends Node3D
 
+
+const CURTAINS_TRANSITION = preload("uid://fn5p7hp6wl0n")
+
 @export var sky_scroll_amount = 3.0
 @export var ring_selector_scene: PackedScene
 @export var grid_selector_scene: PackedScene
@@ -10,6 +13,7 @@ class_name Main extends Node3D
 @onready var turntable: Node3D = $Turntable
 @onready var hud_canvas: CanvasLayer = $HUD
 @onready var round_text: Label3D = $Turntable/RoundText
+@onready var curtains_transition: Node2D = $HUD/CurtainsTransition
 
 @onready var player_data_1: PlayerData = $PlayerData1
 @onready var player_data_2: PlayerData = $PlayerData2
@@ -37,6 +41,7 @@ func next_round():
 	Global.camera.change_player(0)
 
 	await Global.wait(1.5)
+	curtains_transition.transition_out()
 
 	round_text.rotation_degrees.x = 0
 	round_text.position = original_round_text_pos
@@ -54,6 +59,7 @@ func next_round():
 	ring_selector.set_player(curr_player)
 	hud_canvas.add_child(ring_selector)
 	Global.camera.change_player(1 if curr_player == 2 else -1)
+
 
 func _on_sky_timer_timeout() -> void:
 	turntable.rotation_degrees.y += sky_scroll_amount
@@ -79,6 +85,8 @@ func _on_grid_ring_dropped() -> void:
 	# check win first
 	if grid.check_win() > 0:
 		print("player " + str(grid.check_win()) + " wins!")
+		
+		curtains_transition.transition_in()
 		await Global.wait(1.0)
 
 		if round >= len(grid.grid_textures) - 1:
