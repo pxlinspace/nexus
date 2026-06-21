@@ -16,6 +16,7 @@ var is_ring_used: bool = false
 @onready var description_label: RichTextLabel = $Description/DescriptionLabel
 @onready var description_graphic: Sprite2D = $Description/DescriptionGraphic
 @onready var text_box: ColorRect = $Description/TextBox
+@onready var expire_label: Label = $Description/ExpireLabel
 
 var player_data: PlayerData
 
@@ -27,6 +28,7 @@ func _ready() -> void:
 			.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUINT)
 
 	text_box.hide()
+	expire_label.hide()
 	description_label.visible_ratio = 0
 	
 	for i in range(player_data.ring_resources.size()):
@@ -50,6 +52,9 @@ func _on_mouse_area_area_entered(area: Area2D) -> void:
 		hovered_ring = area
 		area.select()
 		description_label.text = "[b]" + hovered_ring.ring_resource.name + "[/b]" + "\n\n" + hovered_ring.ring_resource.desc
+		expire_label.show()
+		var turns_left: int = player_data.ring_resources[area.get_index()].turn_lifespan - player_data.ring_ages[area.get_index()]
+		expire_label.text = "expires in " + str(turns_left) + " turn" + ("" if turns_left == 1 else "s")
 		text_box.show()
 		if hovered_ring.ring_resource.desc_graphic:
 			description_graphic.texture = hovered_ring.ring_resource.desc_graphic
@@ -72,12 +77,14 @@ func _on_mouse_area_area_exited(area: Area2D) -> void:
 	description_label.text = ""
 	description_graphic.texture = null
 	text_box.hide()
+	expire_label.hide()
 
 func _begin_hovered_ring_animation() -> void:
 	if not hovered_ring:
 		return
 
 	text_box.visible = false
+	expire_label.hide()
 	description_graphic.visible = false
 	description_label.visible = false
 

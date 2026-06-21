@@ -41,7 +41,7 @@ func replace_ring(index) -> void:
 
 
 func increment_ring_ages() -> void:
-	for i in ring_ages:
+	for i in RING_COUNT:
 		ring_ages[i] += 1
 		if ring_ages[i] >= ring_resources[i].turn_lifespan:
 			ring_ages[i] = 0
