@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://d4ix2om8nmq6c"]
 
 [ext_resource type="Script" uid="uid://bcd7j2mwrxyj2" path="res://scenes/grid_selector/grid_col_area.gd" id="1_tibqw"]
+[ext_resource type="Texture2D" uid="uid://drr4ix4vo0f8y" path="res://assets/images/arrow.png" id="2_omuqj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tibqw"]
 size = Vector2(42, 360)
@@ -12,6 +13,12 @@ metadata/_edit_vertical_guides_ = [320.0]
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=63218979]
 shape = SubResource("RectangleShape2D_tibqw")
+
+[node name="Arrow" type="Sprite2D" parent="." unique_id=185966471]
+visible = false
+position = Vector2(0, -100.00004)
+scale = Vector2(5, 5)
+texture = ExtResource("2_omuqj")
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

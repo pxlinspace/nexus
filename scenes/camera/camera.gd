@@ -5,7 +5,7 @@ class_name Camera extends Camera3D
 @export var shake_damping_speed = 2.0
 @export var zoomed_z = 3.0
 @export var extra_zoomed_z = 2.0
-@export var zoomed_fov = 50.0
+@export var zoomed_fov = 80.0
 @export var player_x_offset = 0.3
 @export var player_y_rot = 9.0
 
