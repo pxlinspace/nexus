@@ -19,5 +19,5 @@ desc = "Copies the special effect of the ring to the left of it"
 desc_graphic = SubResource("AtlasTexture_rwul7")
 texture = SubResource("AtlasTexture_amxqi")
 type = 9
-turn_lifespan = 2
+turn_lifespan = 4
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

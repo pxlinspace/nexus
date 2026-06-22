@@ -7,4 +7,5 @@ script = ExtResource("1_xefxi")
 name = "Double"
 desc = "double double double double"
 type = 9
+turn_lifespan = 12
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

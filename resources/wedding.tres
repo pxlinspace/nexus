@@ -15,5 +15,5 @@ desc = "Swaps places with the ring adjacent to the right."
 desc_graphic = SubResource("AtlasTexture_jeh2s")
 texture = ExtResource("2_e6grw")
 type = 8
-turn_lifespan = 4
+turn_lifespan = 8
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

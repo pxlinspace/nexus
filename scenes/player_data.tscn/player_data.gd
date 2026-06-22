@@ -55,9 +55,9 @@ func increment_ring_ages() -> void:
 func _get_random_ring_resource() -> RingResource:
 	var rarity_rand: float = randf()
 	var rarity: RING_RARITY
-	if rarity_rand < 0.1:
+	if rarity_rand < 0.2:
 		rarity = RING_RARITY.RARE
-	elif rarity_rand < 0.4:
+	elif rarity_rand < 0.8:
 		rarity = RING_RARITY.UNCOMMON
 	else:
 		rarity = RING_RARITY.COMMON

@@ -8,5 +8,5 @@ script = ExtResource("1_5xdn1")
 name = "Broken Ring"
 desc = "Its magic expired, and it is just a normal ring now."
 texture = ExtResource("2_5xdn1")
-turn_lifespan = 2
+turn_lifespan = 4
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"

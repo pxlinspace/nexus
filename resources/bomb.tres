@@ -13,4 +13,5 @@ name = "Bomb Ring"
 desc = "Destroys the lowest ring in the column."
 texture = SubResource("AtlasTexture_5ryyn")
 type = 11
+turn_lifespan = 12
 metadata/_custom_type_script = "uid://duk6x34b3mfuy"
